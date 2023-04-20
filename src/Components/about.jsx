@@ -9,9 +9,11 @@ import Motion from "../assets/motion.png"
 import Chart from "../assets/chartjs.png"
 
 function About(props) {
-
+    function link(x){
+        window.location.href = x;
+    }
   return (
-    <div>
+    <div id='about' ref={props.refApp} className={`${props.step ? 'opacity-1 translate-y-0': 'opacity-0 translate-y-24'} transition-all delay-100 duration-700`}>
         <div className='text-primarysm font-bold text-lg'>About</div>
         <div className='text-sm my-2 p-2 text-ctext'>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis inventore et repudiandae culpa, voluptatem praesentium corporis ea, incidunt, asperiores a dolorum nulla nostrum quas. Delectus ut ea fugit laboriosam libero sint modi quasi dignissimos neque earum perspiciatis, eligendi dolore a corrupti facere sunt explicabo unde ex debitis alias accusantium saepe!
@@ -24,20 +26,20 @@ function About(props) {
             </div>
             <div className='flex justify-between my-4 py-2 px-3'>
                 <div className='w-[8%]'>
-                    <img src={IG} alt="" srcset={IG} />
+                    <a href="https://www.instagram.com/reyhan.anf_/"><img src={IG} alt="" srcset={IG} /></a>
                 </div>
                 <div className='w-[8%]'>
-                    <img src={FB} alt="" srcset={FB} />
+                   <a href="https://web.facebook.com/reyhan.kenzem.9/?_rdc=1&_rdr"><img src={FB} alt="" srcset={FB} /></a>
+                </div>
+                <div className='w-[8%]' >
+                    <a href="https://github.com/reyhananf"><img src={Git} alt="" srcset={Git} /></a>
                 </div>
                 <div className='w-[8%]'>
-                    <img src={Git} alt="" srcset={Git} />
+                    <a href="mailto:reihan676590@gmail.com"><img src={Email} alt="" srcset={Email} /></a>
                 </div>
-                <div className='w-[8%]'>
-                    <img src={Email} alt="" srcset={Email} />
-                </div>
-                <div className='w-[8%]text-center flex items-center text-[#87DEE7] text-xl'>
+               <a href="https://www.kaggle.com/reyhanandreafirdaus"> <div className='w-[8%]text-center flex items-center text-[#87DEE7] text-xl'>
                     Kaggle
-                </div>
+                </div></a>
             </div>
         </div>
         <div>

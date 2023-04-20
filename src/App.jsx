@@ -13,17 +13,20 @@ import { useInView } from 'react-intersection-observer'
 function App() {
   const { ref: myRef, inView: stepEl} = useInView();
   const { ref: proRef, inView: stepPro} = useInView();
+  const { ref: kidRef, inView: stepKid} = useInView();
+  const { ref: skillRef, inView: stepSkill} = useInView();
+  const { ref: aboutRef, inView: stepAbout} = useInView();
   
   return (
     <div className="App px-4">
-      <Header refApp={myRef}/>
+      <Header />
       <Typoprofil />
       <Highlight />
       <Navbar />
-      <Skillsparam />
+      <Skillsparam refApp={skillRef} step={stepSkill} />
       <Project refApp={proRef} step={stepPro}/>
-      <Kidding />
-      <About refApp={myRef} />
+      <Kidding refApp={kidRef} step={stepKid} />
+      <About refApp={aboutRef} step={stepAbout}/>
 
       <Footer />
     </div>

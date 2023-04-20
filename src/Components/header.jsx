@@ -41,7 +41,7 @@ function Header(props) {
         damping: 50
       }}
       >
-        <img src={ProfilRey} alt="" srcset={ProfilRey} />
+        <img src={ProfilRey} alt="" srcset={ProfilRey}/>
       </motion.div>
     </div>
   )

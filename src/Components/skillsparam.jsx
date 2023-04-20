@@ -20,7 +20,7 @@ ChartJS.register(
 )
 
 
-function Skillsparam() {
+function Skillsparam(props) {
 let [modeSkill, setModeSkill] = useState('skl1');
 
 const data1 = {
@@ -116,7 +116,7 @@ function checkS(x){
 let data = '';
 
   return (
-    <div>
+    <div ref={props.refApp} id='skills' className={`${props.step ? 'opacity-1 translate-y-0': 'opacity-0 translate-y-24'} skills transition-all delay-100 duration-700`}>
         <div className='text-primarysm font-bold'>
             Skills
         </div>
