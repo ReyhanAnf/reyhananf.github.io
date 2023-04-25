@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfilRey from '../assets/rey.png'
+import Profil from './../assets/reyy.png'
 import {motion} from 'framer-motion'
 
 function Header(props) {
@@ -41,7 +41,9 @@ function Header(props) {
         damping: 50
       }}
       >
-        <img src={ProfilRey} alt="" srcset={ProfilRey}/>
+        <div>
+        <img src={Profil} alt="" srcSet={Profil}/>
+        </div>
       </motion.div>
     </div>
   )

@@ -27,7 +27,6 @@ function App() {
       <Project refApp={proRef} step={stepPro}/>
       <Kidding refApp={kidRef} step={stepKid} />
       <About refApp={aboutRef} step={stepAbout}/>
-
       <Footer />
     </div>
   )

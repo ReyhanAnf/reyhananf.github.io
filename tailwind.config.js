@@ -3,17 +3,6 @@ export default {
   content: ["./index.html", "src/**/*.{js,jsx}"],
   mode: 'jit',
   theme: {
-    colors: {
-      'primary': '#1E776D',
-      'primarysm': '#017365',
-      'primarylg': '#024C42',
-      'primaryxl': '#033933',
-      'secondary': '#0A0A0A',
-      'secondarysm': '#252525',
-      'secondarylg': '#333333',
-      'secondaryxl': '#4F4F4F',
-      'ctext' : '#696969',
-    },
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
       serif: ['Poppins', 'serif'],
@@ -25,7 +14,18 @@ export default {
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      colors: {
+        'primary': '#1E776D',
+        'primarysm': '#017365',
+        'primarylg': '#024C42',
+        'primaryxl': '#033933',
+        'secondary': '#0A0A0A',
+        'secondarysm': '#252525',
+        'secondarylg': '#333333',
+        'secondaryxl': '#4F4F4F',
+        'ctext' : '#696969',
+      },
     }
   },
   plugins: [],

@@ -26,16 +26,16 @@ function About(props) {
             </div>
             <div className='flex justify-between my-4 py-2 px-3'>
                 <div className='w-[8%]'>
-                    <a href="https://www.instagram.com/reyhan.anf_/"><img src={IG} alt="" srcset={IG} /></a>
+                    <a href="https://www.instagram.com/@reyhan.anf_/"><img src={IG} alt="" srcSet={IG} /></a>
                 </div>
                 <div className='w-[8%]'>
-                   <a href="https://web.facebook.com/reyhan.kenzem.9/?_rdc=1&_rdr"><img src={FB} alt="" srcset={FB} /></a>
+                   <a href="https://web.facebook.com/reyhan.kenzem.9/?_rdc=1&_rdr"><img src={FB} alt="" srcSet={FB} /></a>
                 </div>
                 <div className='w-[8%]' >
-                    <a href="https://github.com/reyhananf"><img src={Git} alt="" srcset={Git} /></a>
+                    <a href="https://github.com/reyhananf"><img src={Git} alt="" srcSet={Git} /></a>
                 </div>
                 <div className='w-[8%]'>
-                    <a href="mailto:reihan676590@gmail.com"><img src={Email} alt="" srcset={Email} /></a>
+                    <a href="mailto:reihan676590@gmail.com"><img src={Email} alt="" srcSet={Email} /></a>
                 </div>
                <a href="https://www.kaggle.com/reyhanandreafirdaus"> <div className='w-[8%]text-center flex items-center text-[#87DEE7] text-xl'>
                     Kaggle
@@ -48,16 +48,16 @@ function About(props) {
             </div>
             <div className='flex justify-between items-center my-4 py-2 px-3'>
                 <div className='w-[12%]'>
-                    <img src={Rec} alt="" srcset={Rec} />
+                    <img src={Rec} alt="" srcSet={Rec} />
                 </div>
                 <div className='w-[12%]'>
-                    <img src={Tailw} alt="" srcset={Tailw} />
+                    <img src={Tailw} alt="" srcSet={Tailw} />
                 </div>
                 <div className='w-[12%]'>
-                    <img src={Motion} alt="" srcset={Motion} />
+                    <img src={Motion} alt="" srcSet={Motion} />
                 </div>
                 <div className='w-[12%]'>
-                    <img src={Chart} alt="" srcset={Chart} />
+                    <img src={Chart} alt="" srcSet={Chart} />
                 </div>
             </div>
         </div>
