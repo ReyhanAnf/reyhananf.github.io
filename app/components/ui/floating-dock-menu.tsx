@@ -50,17 +50,13 @@ export function FloatingDockMenu() {
   ];
   return (
     <div className="flex fixed justify-end w-full mr-6 pr-6 md:-right-[30%]">
-      <FloatingDock
-      mobileConst={false}
-      defaultOpen={false}
-        items={links}
-      />
-    </div>
+    <FloatingDockDesktop items={links} className="flex flex-row" />
+    </div
   );
 }
 
 export function FloatingDockSocial() {
-  const links = [
+  const links2 = [
     {
       title: "LinkedIn",
       icon: (
@@ -94,7 +90,7 @@ export function FloatingDockSocial() {
   ];
   return (
     <div className="flex justify-center w-full">
-      <FloatingDockDesktop items={links} className="flex flex-row" />
+      <FloatingDockDesktop items={links2} className="flex flex-row" />
     </div>
   );
 }
