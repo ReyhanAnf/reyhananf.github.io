@@ -74,7 +74,7 @@ export default function Project(){
                                 <Image key={i} src={timg.image} alt={timg.name} width={60} height={40} className="w-6 h-6 rounded-md object-fill brightness-200" />
                             ))}
                         </div>
-                        <Link href={project.link} className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] bg-opacity-10 hover:bg-[#64CCC5] hover:text-gray-900")}>View</Link>
+                        <Link href={project.source} className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] bg-opacity-10 hover:bg-[#64CCC5] hover:text-gray-900")}>View</Link>
                         <Link href={project.link} className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] bg-opacity-10 hover:bg-[#64CCC5] hover:text-gray-900")}>Visit</Link>
                     </div>
                 </motion.div>
