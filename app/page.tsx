@@ -16,7 +16,6 @@ export default function Home() {
       <h1 className="text-2xl font-bold px-5 bg-emerald-950 py-2 bg-opacity-15 rounded-md backdrop-blur-lg ">
         <span>{"<"}</span>ReyhanAnf<span>{"/>"}</span>
       </h1>
-      <FloatingDockMenu />
     </div>
     <Header />
     <About />
