@@ -51,7 +51,7 @@ export function FloatingDockMenu() {
   return (
     <div className="flex fixed justify-end w-full mr-6 pr-6 md:-right-[30%]">
     <FloatingDockDesktop items={links} className="flex flex-row" />
-    </div
+    </div>
   );
 }
 
