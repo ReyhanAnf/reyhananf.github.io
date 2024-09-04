@@ -6,29 +6,9 @@ import {
     HoverCardContent,
     HoverCardTrigger,
   } from "@/components/ui/hover-card"
-import { motion } from "framer-motion";
 
 
-const cardVariants = {
-    offscreen1: {
-    opacity: 0.4,
-    x: 50
-    },
-    onscreen1: {
-    opacity : 1,
-    x: 0
-    },
-    offscreen2: {
-    opacity: 0.4,
-    x: -50
-    },
-    onscreen2: {
-    opacity : 1,
-    x: 0
-    },
-};
-
- export default function Skill(){
+ expor default function Skill(){
     const skills1 = [
         {
             title: "For Backend",
@@ -72,10 +52,7 @@ const cardVariants = {
         <div id="skills" className="flex flex-col justify-center items-center my-16 transition-all duration-500">
             <h1 className="text-3xl sm:4xl font-bold border-b-2 border-[#64CCC5]"><span className="text-[#64CCC5] ">&</span>MySkills</h1>
             <p className="text-center text-lg font-extralight leading-8 ">Everything is just basic, nothing deep hahaha</p>
-            <motion.div 
-            initial={cardVariants.offscreen1}
-            whileInView={cardVariants.onscreen1}
-            viewport={{ once: true}}>
+            
                 <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="left" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
                     {skills1.map((skill,i)=>(
                         <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
@@ -101,13 +78,7 @@ const cardVariants = {
                     </div>
                     ))}
                 </Marquee>
-            </motion.div>
-            <motion.div 
-            initial={cardVariants.offscreen2}
-            whileInView={cardVariants.onscreen2}
-            viewport={{ once: true}}>
-
-            <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="right" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
+             <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="right" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
                 {skills2.map((skill,i)=>(
                     <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
                         <div className="flex flex-row gap-10 items-center">
@@ -133,7 +104,6 @@ const cardVariants = {
                 ))}
                
           </Marquee>
-            </motion.div>
             
            
         </div>
