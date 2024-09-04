@@ -8,7 +8,7 @@ import {
   } from "@/components/ui/hover-card"
 
 
- expor default function Skill(){
+ export default function Skill(){
     const skills1 = [
         {
             title: "For Backend",
