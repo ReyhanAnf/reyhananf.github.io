@@ -16,18 +16,28 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
+  * {
+    scroll-behavior: smooth;
+  }
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-grad{
+    @apply bg-gradient-to-tr from-black via-gray-950 to-[#053B50]
+  }
+
+  .animation-pause {
+    animation-play-state: paused;
+  }
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+  :root {
+    --radius: 0.5rem;
   }
 }
