@@ -139,7 +139,7 @@ export const PROJECT = [
         title: "Predict News",
         description : "App For Predict Fake News Using News URL",
         image: "/project/predictnews.png",
-        tech: [TECH.django, TECH.tensorflow],
+        tech: [TECH.django, TECH.tensorflow, TECH.python],
         category: "fullstack",
         source: "https://github.com/ReyhanAnf/sixtas-sortcut",
         link: "#"
@@ -175,7 +175,7 @@ export const PROJECT = [
         title: "Convert Images to PDF",
         description : "Simple program to convert images to pdf files",
         image: "/project/cli_img2pdf.png",
-        tech: [TECH.javascript],
+        tech: [TECH.python],
         category: "cli",
         source: "https://github.com/ReyhanAnf/img2pdf-cli",
         link: "#"
