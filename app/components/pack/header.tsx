@@ -21,8 +21,8 @@ export default function Header(){
                 Hello there, thanks for coming. I am not anyone here, but I enjoy backend or frontend development and developing a simple program.
                 </div>
                 <div className="flex gap-2 justify-center">
-                    <Link href="mailto:reihan676590@gmail.com" className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] text-neutral-900")}>Contact Me</Link>
-                    <Link href="mailto:reihan676590@gmail.com" className={cn(buttonVariants({variant: "outline"}), "border-[#64CCC5] ")}>Download My Resume</Link>
+                    <Link href="mailto:andreafirdausr@gmail.com" className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] text-neutral-900")}>Contact Me</Link>
+                    <Link href="https://github.com/ReyhanAnf/reyhananf.github.io/blob/master/Reyhan%20Andrea%20Firdaus%20-s1.pdf" className={cn(buttonVariants({variant: "outline"}), "border-[#64CCC5] ")}>Download My Resume</Link>
                 </div>
                 <div className="">
                 <FloatingDockSocial />
