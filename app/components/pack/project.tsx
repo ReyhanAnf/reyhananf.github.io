@@ -28,7 +28,7 @@ export default function Project(){
     })
 
 
-    const [showmore, setShowmore] = useState(3)
+    const [showmore, setShowmore] = useState(PROJECT.length)
 
     return (
         <div id="projects" className="flex flex-col items-center justify-center my-14 w-full gap-4 text-neutral-200 transition-all duration-700" >
