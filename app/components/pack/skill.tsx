@@ -51,7 +51,6 @@ import {
     return (
         <div id="skills" className="flex flex-col justify-center items-center my-16 transition-all duration-500">
             <h1 className="text-3xl sm:4xl font-bold border-b-2 border-[#64CCC5]"><span className="text-[#64CCC5] ">&</span>MySkills</h1>
-            <p className="text-center text-lg font-extralight leading-8 ">Everything is just basic, nothing deep hahaha</p>
             
                 <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="left" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
                     {skills1.map((skill,i)=>(
