@@ -22,7 +22,7 @@ export default function Header(){
                 </div>
                 <div className="flex gap-2 justify-center">
                     <Link href="mailto:andreafirdausr@gmail.com" className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] text-neutral-900")}>Contact Me</Link>
-                    <Link href="https://github.com/ReyhanAnf/reyhananf.github.io/blob/master/Reyhan%20Andrea%20Firdaus%20-s1.pdf" className={cn(buttonVariants({variant: "outline"}), "border-[#64CCC5] ")}>Download My Resume</Link>
+                    <Link href="https://drive.google.com/file/d/16Of8GkhClPuutGVaFucXY_9Ae27-xUkr/view?usp=sharing" className={cn(buttonVariants({variant: "outline"}), "border-[#64CCC5] ")}>Download My Resume</Link>
                 </div>
                 <div className="">
                 <FloatingDockSocial />
