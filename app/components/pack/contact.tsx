@@ -16,8 +16,8 @@ export default function Contact() {
     return (
         <div id="contact" className="flex flex-col items-center justify-center my-16 w-full gap-4">
             <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground">GET IN TOUCH</h1>
-                <p className="text-muted-foreground mt-2">Have a question or want to work together? Leave a message.</p>
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Let's Connect</h1>
+                <p className="text-muted-foreground mt-2">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
             </div>
 
             <motion.form 

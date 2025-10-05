@@ -8,10 +8,10 @@
     --background: 210 40% 98%;
     --foreground: 222 84% 5%;
 
-    --card: 210 40% 98%;
+    --card: 210 40% 96%;
     --card-foreground: 222 84% 5%;
 
-    --popover: 210 40% 98%;
+    --popover: 210 40% 96%;
     --popover-foreground: 222 84% 5%;
 
     --primary: 217 91% 60%;
@@ -20,18 +20,18 @@
     --secondary: 210 40% 91%;
     --secondary-foreground: 222 84% 5%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 91%;
+    --accent-foreground: 217 91% 60%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
   }
@@ -40,30 +40,30 @@
     --background: 222 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222, 8%, 18%;
+    --card: 222 84% 8%;
     --card-foreground: 210 40% 98%;
 
     --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
+    --primary: 217 91% 65%;
     --primary-foreground: 222 84% 5%;
 
-    --secondary: 217 32% 17%;
+    --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 217 91% 65%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 65%;
   }
 }
 
@@ -73,15 +73,15 @@
     scroll-behavior: smooth;
   }
   html {
-    --gradient-start: #ecf8f9; /* Pastel Blue/Cyan */
-    --gradient-mid: #fafffb;   /* Pastel Teal/Green */
-    --gradient-end: #fffff9;     /* Pastel Golden Yellow */
+    --gradient-start: #f0f9ff;
+    --gradient-mid: #f7fbff;
+    --gradient-end: #ffffff;
   }
 
   .dark {
-    --gradient-start: #18282e;
-    --gradient-mid: #09120f;
-    --gradient-end: #2a2717;
+    --gradient-start: #0b1729;
+    --gradient-mid: #0d1b30;
+    --gradient-end: #0f1f3a;
   }
 
   body {

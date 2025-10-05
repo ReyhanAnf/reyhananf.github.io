@@ -56,13 +56,10 @@ export default function Experience() {
                                 }
                             </div>
 
-                            {/* Dot in the middle */}
-                            <div className="z-10">
-                                <div className="w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-                            </div>
+                           
 
                             {/* Right Side */}
-                            <div className={`w-1/2 pl-8 ${index % 2 === 0 ? 'order-3' : ''}`}>
+                            <div className={`w-1/2 pl-8 md:translate-x-full ${index % 2 === 0 ? 'order-3' : ''}`}>
                                 {index % 2 !== 0 && 
                                     <div className="bg-card p-6 rounded-lg border shadow-md">
                                         <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
@@ -70,6 +67,11 @@ export default function Experience() {
                                         <p className="text-muted-foreground mt-3 text-sm">{exp.description}</p>
                                     </div>
                                 }
+                            </div>
+
+                             {/* Dot in the middle */}
+                            <div className="z-10">
+                                <div className="w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
                             </div>
                         </div>
 

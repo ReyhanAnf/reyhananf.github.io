@@ -1,10 +1,10 @@
 'use client';
 
 import Link from "next/link";
-import { motion } from "motion/react"
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconMail, IconMapPin } from "@tabler/icons-react";
-import Image from "next/image";
+import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram } from "@tabler/icons-react";
+import { Typewriter } from 'react-simple-typewriter';
 
 export default function Header() {
 
@@ -12,7 +12,7 @@ export default function Header() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 },
     },
   };
 
@@ -27,55 +27,63 @@ export default function Header() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen flex items-center justify-center py-16 md:py-24"
+      className="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24"
     >
-      <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-4 w-full max-w-6xl h-[600px]">
-        
-        {/* Main Info Box */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-2 row-span-2 bg-card p-6 rounded-xl border shadow-md flex flex-col justify-between"
-        >
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Reyhan Andrea Firdaus</h1>
-            <p className="text-lg md:text-xl text-primary mt-2">Full-Stack Developer & System Architect</p>
-            <p className="text-muted-foreground mt-4 max-w-lg">
-              I build modern, scalable, and user-friendly web applications. Passionate about solving problems with clean and efficient code.
-            </p>
-          </div>
-          <div className="flex justify-end">
-             <Button asChild size="lg">
-                <a href="/Reyhan Andrea Firdaus.pdf" target="_blank" rel="noopener noreferrer" download>
-                  Download CV
-                </a>
-              </Button>
-          </div>
-        </motion.div>
+      <motion.h1 
+        variants={itemVariants}
+        className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-cyan-400 animate-gradient-xy"
+        style={{
+          backgroundSize: '200% 200%',
+        }}
+      >
+        Reyhan Andrea Firdaus
+      </motion.h1>
 
-        {/* Profile Picture Box */}
-        <motion.div 
-          variants={itemVariants}
-          className="relative overflow-hidden bg-card rounded-xl border shadow-md"
-        >
-            <Image src="/reyn_rbg.png" alt="Reyhan Andrea Firdaus" fill className="object-cover scale-110" />
-        </motion.div>
+      <motion.p 
+        variants={itemVariants}
+        className="text-xl md:text-2xl text-primary mt-4 font-semibold"
+      >
+        <Typewriter
+            words={['Full-Stack Developer', 'System Architect', 'Problem Solver']}
+            loop={true}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+        />
+      </motion.p>
 
-        {/* Contact Info Box */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 bg-card p-6 rounded-xl border shadow-md flex flex-col justify-center gap-4"
-        >
-            <div className="flex items-center gap-3">
-                <IconMail className="w-6 h-6 text-primary" />
-                <span className="text-muted-foreground">andreafirdausr@gmail.com</span>
-            </div>
-            <div className="flex items-center gap-3">
-                <IconMapPin className="w-6 h-6 text-primary" />
-                <span className="text-muted-foreground">Bekasi, Indonesia</span>
-            </div>
-        </motion.div>
+      <motion.p 
+        variants={itemVariants}
+        className="text-muted-foreground mt-6 max-w-xl mx-auto text-lg"
+      >
+        I build modern, scalable, and user-friendly web applications. Passionate about solving problems with clean and efficient code.
+      </motion.p>
 
-      </div>
+      <motion.div variants={itemVariants} className="flex items-center justify-center gap-4 mt-8">
+        <Button asChild size="lg">
+          <a href="/Reyhan Andrea Firdaus.pdf" target="_blank" rel="noopener noreferrer" download>
+            Download CV
+          </a>
+        </Button>
+        <Button asChild size="lg" variant="secondary">
+          <Link href="#contact">Contact Me</Link>
+        </Button>
+      </motion.div>
+
+      <motion.div variants={itemVariants} className="flex items-center justify-center gap-6 mt-10">
+        <Link href="https://github.com/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+          <IconBrandGithub size={28} />
+        </Link>
+        <Link href="https://linkedin.com/in/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+          <IconBrandLinkedin size={28} />
+        </Link>
+        <Link href="https://instagram.com/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+          <IconBrandInstagram size={28} />
+        </Link>
+      </motion.div>
+
     </motion.header>
   );
 }

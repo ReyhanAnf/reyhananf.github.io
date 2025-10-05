@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(fonts.nunito.className, "scroll-smooth")} suppressHydrationWarning style={{scrollBehavior:'smooth'}} >
+    <html lang="en" className={cn(fonts.inter.variable, "scroll-smooth")} suppressHydrationWarning style={{scrollBehavior:'smooth'}} >
       <body>
           <Providers>
             <MainNav />

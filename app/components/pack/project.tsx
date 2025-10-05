@@ -14,7 +14,7 @@ export default function Project() {
     return (
         <div id="projects" className="flex flex-col items-center justify-center my-16 w-full gap-4">
             <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground">PROJECTS</h1>
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Projects</h1>
                 <p className="text-muted-foreground mt-2">A selection of my personal and academic projects.</p>
             </div>
 
@@ -55,7 +55,7 @@ export default function Project() {
                                 <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover" />
                             </div>
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold mt-1">{selectedProject.title}</h3>
+                                <h3 className="text-2xl font-bold mt-1 font-serif">{selectedProject.title}</h3>
                                 <p className="text-muted-foreground mt-3 flex-grow min-h-[60px]">{selectedProject.description}</p>
                                 <div className="mt-4 flex flex-wrap gap-2">
                                     {selectedProject.tech.map((timg, i) => (

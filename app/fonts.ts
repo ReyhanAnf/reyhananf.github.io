@@ -1,29 +1,17 @@
 // app/fonts.ts
-import { Rubik, Poppins, Fira_Mono, Nunito } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 
-const rubik = Rubik({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-inter',
 })
 
-const poppins = Poppins({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
-  weight: ["400"],
-  variable: '--font-poppins',
-})
-
-const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ["400"],
-  variable: '--font-nunito',
-})
-
-const firecode = Fira_Mono({
-  subsets: ['latin'],
-  weight: ["500"],
-  variable: '--font-firecode',
+  variable: '--font-playfair-display',
 })
 
 export const fonts = {
-  rubik, poppins, firecode, nunito
+  inter,
+  playfairDisplay,
 }

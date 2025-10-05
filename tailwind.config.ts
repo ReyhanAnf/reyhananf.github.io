@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        serif: ['var(--font-playfair-display)'],
+      },
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
@@ -54,12 +58,23 @@ const config: Config = {
   		          foreground: "hsl(var(--card-foreground))",
   		        },
   		      },		keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
 		'slide-left': {
 			from: { transform: 'translateX(0)' },
 			to: { transform: 'translateX(-100%)' },
 		},
 		},
 		animation: {
+        'gradient-xy': 'gradient-xy 10s ease infinite',
 		'slide-left': 'slide-left 8s linear infinite',
 		},
   	}
