@@ -4,6 +4,7 @@ import Contact from "./components/pack/contact"
 import Experience from "./components/pack/experience"
 import Header from "./components/pack/header"
 import Project from "./components/pack/project"
+import Experiment from "./components/pack/experiment"
 import Skill from "./components/pack/skill"
 import About from "./components/pack/about"
 
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <Experience />
       <Project />
+      <Experiment />
       <Certificates />
       <Skill />
       <Contact />

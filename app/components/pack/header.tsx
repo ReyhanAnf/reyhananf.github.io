@@ -3,11 +3,17 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram } from "@tabler/icons-react";
-import { Typewriter } from 'react-simple-typewriter';
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandInstagram,
+  IconMail,
+  IconMapPin,
+} from "@tabler/icons-react";
+import Image from "next/image";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Header() {
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -18,72 +24,98 @@ export default function Header() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
+  // 👉 Fungsi kirim email langsung
+  const handleMailClick = () => {
+    const subject = encodeURIComponent("Let's Collaborate!");
+    const body = encodeURIComponent(
+      "Hi Reyhan, I’d love to discuss a project or collaboration opportunity with you."
+    );
+    window.open(`mailto:andreafirdausr@gmail.com?subject=${subject}&body=${body}`, "_blank");
   };
 
   return (
-    <motion.header 
+    <motion.header
       id="home"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen flex flex-col items-center justify-center text-center py-16 md:py-24"
+      className="min-h-50vh flex items-start justify-center"
     >
-      <motion.h1 
-        variants={itemVariants}
-        className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-cyan-400 animate-gradient-xy"
-        style={{
-          backgroundSize: '200% 200%',
-        }}
-      >
-        Reyhan Andrea Firdaus
-      </motion.h1>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-5xl mx-auto">
+        {/* Left Column: Image */}
+        <motion.div
+          variants={imageVariants}
+          className="relative w-48 h-48 md:w-56 md:h-56 flex-shrink-0"
+        >
+          <Image
+            src="/reyn_rbg.png"
+            alt="Reyhan Andrea Firdaus"
+            fill
+            className="object-cover rounded-full border-4 border-primary/20 shadow-lg"
+          />
+        </motion.div>
 
-      <motion.p 
-        variants={itemVariants}
-        className="text-xl md:text-2xl text-primary mt-4 font-semibold"
-      >
-        <Typewriter
-            words={['Full-Stack Developer', 'System Architect', 'Problem Solver']}
-            loop={true}
-            cursor
-            cursorStyle='_'
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-        />
-      </motion.p>
+        {/* Right Column: Content */}
+        <motion.div variants={itemVariants} className="text-center md:text-left">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground font-serif">
+            Reyhan Andrea Firdaus
+          </h1>
 
-      <motion.p 
-        variants={itemVariants}
-        className="text-muted-foreground mt-6 max-w-xl mx-auto text-lg"
-      >
-        I build modern, scalable, and user-friendly web applications. Passionate about solving problems with clean and efficient code.
-      </motion.p>
+          <p className="text-xl md:text-2xl text-primary mt-2 font-semibold">
+            <Typewriter
+              words={["Full-Stack Developer", "Software Engineer"]}
+              loop={true}
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </p>
 
-      <motion.div variants={itemVariants} className="flex items-center justify-center gap-4 mt-8">
-        <Button asChild size="lg">
-          <a href="/Reyhan Andrea Firdaus.pdf" target="_blank" rel="noopener noreferrer" download>
-            Download CV
-          </a>
-        </Button>
-        <Button asChild size="lg" variant="secondary">
-          <Link href="#contact">Contact Me</Link>
-        </Button>
-      </motion.div>
+          <p className="text-muted-foreground mt-4 max-w-lg">
+            I build modern, scalable, and user-friendly web applications, passionate about
+            solving problems with clean and efficient code.
+          </p>
 
-      <motion.div variants={itemVariants} className="flex items-center justify-center gap-6 mt-10">
-        <Link href="https://github.com/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-          <IconBrandGithub size={28} />
-        </Link>
-        <Link href="https://linkedin.com/in/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-          <IconBrandLinkedin size={28} />
-        </Link>
-        <Link href="https://instagram.com/reyhananf" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-          <IconBrandInstagram size={28} />
-        </Link>
-      </motion.div>
+          <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-x-6 gap-y-2 mt-5 text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <IconMail className="w-5 h-5 text-primary/80" />
+              <span>andreafirdausr@gmail.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <IconMapPin className="w-5 h-5 text-primary/80" />
+              <span>Tasikmalaya, Indonesia</span>
+            </div>
+          </div>
 
+          <div className="flex items-center justify-center md:justify-start gap-4 mt-8">
+            {/* ✅ Tombol langsung buka email */}
+            <Button size="lg" onClick={handleMailClick}>
+              Contact Me
+            </Button>
+
+            <Button asChild size="lg" variant="secondary">
+              <a
+                href="/Reyhan Andrea Firdaus.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                Download CV
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
     </motion.header>
   );
 }

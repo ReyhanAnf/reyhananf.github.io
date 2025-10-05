@@ -16,6 +16,8 @@ export default function Certificates() {
         exit: { opacity: 0, y: -20 },
     };
 
+    return '';
+
     return (
         <div id="certificates" className="flex flex-col items-center justify-center my-16 w-full gap-4">
             <div className="text-center mb-12">
