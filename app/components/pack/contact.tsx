@@ -1,11 +1,11 @@
 'use client'
 
 import { Button } from "@/components/ui/button";
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 
 export default function Contact() {
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
