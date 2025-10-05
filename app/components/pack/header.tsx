@@ -1,33 +1,81 @@
+'use client';
 
-import Image from "next/image"
-import { Cover } from "../ui/cover"
-import { Button, buttonVariants } from "@/components/ui/button"
-import Link from "next/link"
-import { cn } from "@/lib/utils"
-import { FloatingDockSocial } from "../ui/floating-dock-menu"
+import Link from "next/link";
+import { motion } from "motion/react"
+import { Button } from "@/components/ui/button";
+import { IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconMail, IconMapPin } from "@tabler/icons-react";
+import Image from "next/image";
 
-export default function Header(){
-    const name = `Reyhan`
-    const lastname = `Firdaus`
+export default function Header() {
 
-    return(
-        <header className="flex flex-col sm:flex-row w-full sm:justify-evenly items-center my-5 mb-7">
-            <Image priority src={"/reyn_rbg.png"} alt="Reyhan" width={300} height={400} className="w-auto h-auto" />
-            <div className="flex flex-col text-center justify-center gap-4">
-                <h1 className="scroll-m-20 text-2xl sm:text-3xl lg:text-4xl items-start font-extrabold">
-                    Hi, I`m <span className="text-[#64CCC5]">{`<`}</span>{name}<Cover className="sticky z-50">Andrea</Cover>{lastname}<span className="text-[#64CCC5]">{`/>`}</span>
-                </h1>
-                <div className="text-center text-lg text-neutral-200">
-                Hello there, thanks for coming. I am not anyone here, but I enjoy backend or frontend development and developing a simple program.
-                </div>
-                <div className="flex gap-2 justify-center">
-                    <Link href="mailto:andreafirdausr@gmail.com" className={cn(buttonVariants({variant: "link"}), "bg-[#64CCC5] text-neutral-900")}>Contact Me</Link>
-                    <Link href="https://drive.google.com/file/d/16Of8GkhClPuutGVaFucXY_9Ae27-xUkr/view?usp=sharing" className={cn(buttonVariants({variant: "outline"}), "border-[#64CCC5] ")}>Download My Resume</Link>
-                </div>
-                <div className="">
-                <FloatingDockSocial />
-                </div>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100 } },
+  };
+
+  return (
+    <motion.header 
+      id="home"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen flex items-center justify-center py-16 md:py-24"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 gap-4 w-full max-w-6xl h-[600px]">
+        
+        {/* Main Info Box */}
+        <motion.div 
+          variants={itemVariants}
+          className="md:col-span-2 row-span-2 bg-card p-6 rounded-xl border shadow-md flex flex-col justify-between"
+        >
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Reyhan Andrea Firdaus</h1>
+            <p className="text-lg md:text-xl text-primary mt-2">Full-Stack Developer & System Architect</p>
+            <p className="text-muted-foreground mt-4 max-w-lg">
+              I build modern, scalable, and user-friendly web applications. Passionate about solving problems with clean and efficient code.
+            </p>
+          </div>
+          <div className="flex justify-end">
+             <Button asChild size="lg">
+                <a href="/Reyhan Andrea Firdaus.pdf" target="_blank" rel="noopener noreferrer" download>
+                  Download CV
+                </a>
+              </Button>
+          </div>
+        </motion.div>
+
+        {/* Profile Picture Box */}
+        <motion.div 
+          variants={itemVariants}
+          className="relative overflow-hidden bg-card rounded-xl border shadow-md"
+        >
+            <Image src="/reyn_rbg.png" alt="Reyhan Andrea Firdaus" fill className="object-cover scale-110" />
+        </motion.div>
+
+        {/* Contact Info Box */}
+        <motion.div 
+          variants={itemVariants}
+          className="md:col-span-1 bg-card p-6 rounded-xl border shadow-md flex flex-col justify-center gap-4"
+        >
+            <div className="flex items-center gap-3">
+                <IconMail className="w-6 h-6 text-primary" />
+                <span className="text-muted-foreground">andreafirdausr@gmail.com</span>
             </div>
-        </header>
-    )
+            <div className="flex items-center gap-3">
+                <IconMapPin className="w-6 h-6 text-primary" />
+                <span className="text-muted-foreground">Bekasi, Indonesia</span>
+            </div>
+        </motion.div>
+
+      </div>
+    </motion.header>
+  );
 }

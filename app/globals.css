@@ -1,43 +1,96 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+    --background: 210 40% 98%;
+    --foreground: 222 84% 5%;
 
-@layer utilities {
-  * {
-    scroll-behavior: smooth;
-  }
-  .text-balance {
-    text-wrap: balance;
+    --card: 210 40% 98%;
+    --card-foreground: 222 84% 5%;
+
+    --popover: 210 40% 98%;
+    --popover-foreground: 222 84% 5%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 91%;
+    --secondary-foreground: 222 84% 5%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
   }
 
-  .bg-grad{
-    @apply bg-gradient-to-tr from-black via-gray-950 to-[#053B50]
-  }
+  .dark {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-  .animation-pause {
-    animation-play-state: paused;
+    --card: 222, 8%, 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 84% 5%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
 @layer base {
   * {
+    @apply border-border;
     scroll-behavior: smooth;
   }
-  :root {
-    --radius: 0.5rem;
+  html {
+    --gradient-start: #ecf8f9; /* Pastel Blue/Cyan */
+    --gradient-mid: #fafffb;   /* Pastel Teal/Green */
+    --gradient-end: #fffff9;     /* Pastel Golden Yellow */
+  }
+
+  .dark {
+    --gradient-start: #18282e;
+    --gradient-mid: #09120f;
+    --gradient-end: #2a2717;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-[var(--gradient-start)] via-[var(--gradient-mid)] to-[var(--gradient-end)] text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }

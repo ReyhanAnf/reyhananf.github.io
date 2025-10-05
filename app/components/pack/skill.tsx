@@ -1,110 +1,100 @@
+'use client'
+
 import Image from "next/image"
-import Marquee from "react-fast-marquee"
 import { SOFTWARE, TECH } from "@/lib/vars"
 import {
     HoverCard,
     HoverCardContent,
     HoverCardTrigger,
-  } from "@/components/ui/hover-card"
+} from "@/components/ui/hover-card"
+import { motion } from "framer-motion"
 
+const skills = [
+    {
+        title: "Backend",
+        tech: [TECH.go, TECH.python, TECH.gin, TECH.django, TECH.flask]
+    },
+    {
+        title: "Frontend",
+        tech: [TECH.javascript, TECH.tailwind, TECH.nextjs, TECH.reactjs, TECH.shadcn, TECH.aceternity]
+    },
+    {
+        title: "DevOps & Databases",
+        tech: [TECH.docker, TECH.mysql, TECH.postgresql]
+    },
+    {
+        title: "Office & Design",
+        tech: [SOFTWARE.word, SOFTWARE.excel, SOFTWARE.powerpoint, SOFTWARE.canva, SOFTWARE.inkscape, SOFTWARE.illustrator, SOFTWARE.capcut, SOFTWARE.aftereffects]
+    },
+]
 
- export default function Skill(){
-    const skills1 = [
-        {
-            title: "For Backend",
-            tech: [TECH.go, TECH.python]
-        },
-        {
-            title: "Framework Backend",
-            tech: [TECH.gin, TECH.django, TECH.flask]
-        },
-        {
-            title: "For Frontend",
-            tech: [TECH.javascript, TECH.tailwind]
-        },
-        {
-            title: "Framework Frontend",
-            tech: [TECH.nextjs, TECH.reactjs, TECH.shadcn, TECH.aceternity]
-        },
-        {
-            title: "For DevOps & Database",
-            tech: [TECH.docker, TECH.mysql, TECH.postgresql]
-        },
-    ]
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
 
-    const skills2 = [
-        {
-            title: "For Office",
-            tech: [SOFTWARE.word, SOFTWARE.excel, SOFTWARE.powerpoint]
-        },
-        {
-            title: "For Design Graphics",
-            tech: [SOFTWARE.canva, SOFTWARE.inkscape, SOFTWARE.illustrator]
-        },
-        {
-            title: "For Videography",
-            tech: [SOFTWARE.capcut, SOFTWARE.aftereffects]
-        },
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+};
 
-    ]
-
+export default function Skill(){
     return (
-        <div id="skills" className="flex flex-col justify-center items-center my-16 transition-all duration-500">
-            <h1 className="text-3xl sm:4xl font-bold border-b-2 border-[#64CCC5]"><span className="text-[#64CCC5] ">&</span>MySkills</h1>
-            
-                <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="left" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
-                    {skills1.map((skill,i)=>(
-                        <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
-                            <div className="flex flex-row gap-10 items-center">
-                            {skill.tech.map((tech, j)=>(
+        <div id="skills" className="flex flex-col justify-center items-center my-16 w-full gap-4">
+            <div className="text-center mb-12">
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground">SKILLS</h1>
+                <p className="text-muted-foreground mt-2">Technologies and tools I work with.</p>
+            </div>
+
+            <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl"
+            >
+                {skills.map((skillCategory, i) => (
+                    <motion.div 
+                        key={i} 
+                        variants={itemVariants}
+                        className="bg-card text-card-foreground rounded-xl border shadow-md p-6"
+                    >
+                        <h3 className="text-xl font-semibold mb-6 text-center text-primary">{skillCategory.title}</h3>
+                        <div className="flex flex-wrap gap-4 justify-center">
+                            {skillCategory.tech.map((tech, j) => (
                                 <HoverCard key={j}>
-                                    <HoverCardTrigger>
-                                        <Image key={j} width={50} height={50} src={tech.image} className={`w-${tech.size}`} alt={tech.name} />
+                                    <HoverCardTrigger className="cursor-pointer">
+                                        <div className="flex items-center justify-center bg-secondary p-3 rounded-2xl hover:bg-accent transition-colors">
+                                            <Image 
+                                                width={40} 
+                                                height={40} 
+                                                src={tech.image} 
+                                                className={`w-10 h-10 object-contain`} 
+                                                alt={tech.name} 
+                                            />
+                                        </div>
                                     </HoverCardTrigger>
-                                    <HoverCardContent className="bg-neutral-900 z-50">
-                                        <div className="flex justify-between space-x-4">
-                                            <div className="space-y-1 flex flex-row gap-4 items-center">
-                                                <Image key={j+100} width={50} height={50} src={tech.image} className={`w-16`} alt={tech.name} />
-                                                <h4 className="text-xl font-bold">{tech.name}</h4>
-                                            </div>
+                                    <HoverCardContent className="bg-popover text-popover-foreground border-border">
+                                        <div className="flex items-center gap-4">
+                                            <Image 
+                                                width={40} 
+                                                height={40} 
+                                                src={tech.image} 
+                                                className={`w-10 h-10 object-contain`} 
+                                                alt={tech.name} 
+                                            />
+                                            <h4 className="text-lg font-bold">{tech.name}</h4>
                                         </div>
                                     </HoverCardContent>
                                 </HoverCard>
-
                             ))}
-                            </div>
-                            <div>{skill.title}</div>
-                    </div>
-                    ))}
-                </Marquee>
-             <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="right" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
-                {skills2.map((skill,i)=>(
-                    <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
-                        <div className="flex flex-row gap-10 items-center">
-                        {skill.tech.map((tech, j)=>(
-                            <HoverCard key={j}>
-                                <HoverCardTrigger>
-                                    <Image key={j} width={50} height={50} src={tech.image} className={`w-${tech.size}`} alt={tech.name} />
-                                </HoverCardTrigger>
-                                <HoverCardContent className="bg-neutral-900 z-50">
-                                    <div className="flex justify-between space-x-4">
-                                        <div className="space-y-1 flex flex-row gap-4 items-center">
-                                            <Image key={j+100} width={50} height={50} src={tech.image} className={`w-16`} alt={tech.name} />
-                                            <h4 className="text-xl font-bold">{tech.name}</h4>
-                                        </div>
-                                    </div>
-                                </HoverCardContent>
-                            </HoverCard>
-
-                        ))}
                         </div>
-                        <div>{skill.title}</div>
-                 </div>
+                    </motion.div>
                 ))}
-               
-          </Marquee>
-            
-           
+            </motion.div>
         </div>
     )
- }
+}

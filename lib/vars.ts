@@ -221,3 +221,35 @@ export const PRODUCT = [
     },
 
 ]
+
+export const EXPERIENCE = [
+    {
+        title: "Full Stack Developer",
+        company: "PT. Telekomunikasi Indonesia",
+        date: "Aug 2023 - Dec 2023",
+        description: "Developed and maintained web applications using React, Node.js, and Go. Collaborated with cross-functional teams to define, design, and ship new features."
+    },
+    {
+        title: "IT Support",
+        company: "PT. Angkasa Pura II",
+        date: "Jan 2020 - Mar 2020",
+        description: "Provided technical assistance and support for incoming queries and issues related to computer systems, software, and hardware. Maintained daily performance of computer systems."
+    }
+]
+
+export const CERTIFICATES = [
+    {
+        title: "Go (Basic)",
+        issuer: "HackerRank",
+        date: "May 2024",
+        image: "/path/to/certificate-image1.png", // Placeholder
+        link: "#"
+    },
+    {
+        title: "React (Basic)",
+        issuer: "HackerRank",
+        date: "June 2024",
+        image: "/path/to/certificate-image2.png", // Placeholder
+        link: "#"
+    }
+]
