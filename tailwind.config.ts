@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        serif: ['var(--font-playfair-display)'],
+      },
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
   			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
@@ -16,16 +20,61 @@ const config: Config = {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
+        xl: "calc(var(--radius) + 4px)",
   		},
-  		colors: {},
-		keyframes: {
+  		      colors: {
+  		        border: "hsl(var(--border))",
+  		        input: "hsl(var(--input))",
+  		        ring: "hsl(var(--ring))",
+  		        background: "hsl(var(--background))",
+  		        foreground: "hsl(var(--foreground))",
+  		        primary: {
+  		          DEFAULT: "hsl(var(--primary))",
+  		          foreground: "hsl(var(--primary-foreground))",
+  		        },
+  		        secondary: {
+  		          DEFAULT: "hsl(var(--secondary))",
+  		          foreground: "hsl(var(--secondary-foreground))",
+  		        },
+  		        destructive: {
+  		          DEFAULT: "hsl(var(--destructive))",
+  		          foreground: "hsl(var(--destructive-foreground))",
+  		        },
+  		        muted: {
+  		          DEFAULT: "hsl(var(--muted))",
+  		          foreground: "hsl(var(--muted-foreground))",
+  		        },
+  		        accent: {
+  		          DEFAULT: "hsl(var(--accent))",
+  		          foreground: "hsl(var(--accent-foreground))",
+  		        },
+  		        popover: {
+  		          DEFAULT: "hsl(var(--popover))",
+  		          foreground: "hsl(var(--popover-foreground))",
+  		        },
+  		        card: {
+  		          DEFAULT: "hsl(var(--card))",
+  		          foreground: "hsl(var(--card-foreground))",
+  		        },
+  		      },		keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center',
+          },
+        },
 		'slide-left': {
 			from: { transform: 'translateX(0)' },
 			to: { transform: 'translateX(-100%)' },
 		},
 		},
 		animation: {
+        'gradient-xy': 'gradient-xy 10s ease infinite',
 		'slide-left': 'slide-left 8s linear infinite',
 		},
   	}

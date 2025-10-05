@@ -1,18 +1,32 @@
+'use client';
+
+import { motion, Variants } from "framer-motion";
 
 export default function About(){
 
+    const sectionVariants: Variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    };
+
     return (
-        <div className="flex flex-col items-center justify-center my-16 w-full">
-            <div className="text-center">
-                <h1 className="text-3xl sm:4xl font-extrabold border-b-2 border-[#64CCC5]"><span className="text-[#64CCC5]">&</span>About</h1>
-                <span>Fun Fact for Me</span>
+        <motion.div 
+            id="about"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="flex flex-col items-center justify-center my-24 w-full"
+        >
+            <div className="text-center mb-12">
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">About Me</h1>
+                <p className="text-muted-foreground mt-2">From curiosity to creation.</p>
             </div>
-            <div className="px-8 py-5 m-5 bg-slate-900 bg-opacity-15 rounded-md w-[90%]">
-                <div className="text-sm text-center">
-                {/* As a dedicated Software Engineer with a strong foundation in Information Systems, I have a passion for leveraging technology to solve complex problems. My journey in software development is driven by a deep interest in programming, particularly with Python, where I continually explore and refine my skills. My academic background equips me with a solid understanding of systems and technology, which I apply to create efficient and innovative solutions. I am committed to staying ahead in the rapidly evolving tech landscape, always eager to learn and adopt new tools and methodologies. */}
-                Software Engineer with a background in Information Systems, passionate about Python programming and continuously exploring new technologies. Currently enhancing skills in developing innovative solutions.
-                </div>
+            <div className="p-10 bg-card text-card-foreground rounded-xl border shadow-md w-full max-w-4xl">
+                <p className="text-lg md:text-xl text-center text-balance leading-relaxed">
+                    Full-Stack Software Engineer specializing in building robust applications with Python, PHP/Laravel, and Next.js. Currently expanding my expertise into Go (Golang) to develop high-performance, scalable solutions
+                </p>
             </div>
-        </div>
+        </motion.div>
     )
 }

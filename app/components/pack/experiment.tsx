@@ -3,15 +3,15 @@
 import { useState, Fragment } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog, Transition } from '@headlessui/react';
-import { PROJECT } from "@/lib/vars";
+import { EXPERIMENT } from "@/lib/vars";
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { IconX } from '@tabler/icons-react';
 
-export default function Project() {
-    const [selectedProject, setSelectedProject] = useState(PROJECT[0]);
+export default function Experiment() {
+    const [selectedProject, setSelectedProject] = useState(EXPERIMENT[0]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleProjectClick = (project: any) => {
@@ -27,11 +27,9 @@ export default function Project() {
 
     const ProjectDetails = ({ project }: { project: any }) => (
         <div className="bg-card text-card-foreground rounded-xl border shadow-md overflow-hidden w-full h-full flex flex-col">
-            {project.image != 'none' ? (
-                <div className="relative w-full h-64"> 
-                    <Image src={project.image} alt={project.title} fill className="object-cover" />
-                </div>
-            ) : ''}
+            <div className="relative w-full h-64"> 
+                <Image src={project.image} alt={project.title} fill className="object-cover" />
+            </div>
             <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold mt-1 font-serif">{project.title}</h3>
                 <p className="text-muted-foreground mt-3 flex-grow min-h-[60px]">{project.description}</p>
@@ -55,16 +53,16 @@ export default function Project() {
     );
 
     return (
-        <div id="projects" className="flex flex-col items-center justify-center my-16 w-full gap-4">
+        <div id="experiments" className="flex flex-col items-center justify-center my-16 w-full gap-4">
             <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Projects</h1>
-                <p className="text-muted-foreground mt-2">A selection of my personal and academic projects.</p>
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Experimental Projects</h1>
+                <p className="text-muted-foreground mt-2">A collection of my experimental and personal projects.</p>
             </div>
 
             {/* Desktop Layout */}
             <div className="hidden md:flex flex-col md:flex-row gap-8 w-full max-w-6xl min-h-[70vh]">
                 <div className="w-full md:w-1/2 flex flex-col gap-2">
-                    {PROJECT.map((project) => (
+                    {EXPERIMENT.map((project) => (
                         <button
                             key={project.title}
                             onClick={() => handleProjectClick(project)}
@@ -99,7 +97,7 @@ export default function Project() {
 
             {/* Mobile Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden w-full max-w-6xl">
-                {PROJECT.map((project) => (
+                {EXPERIMENT.map((project) => (
                     <button
                         key={project.title}
                         onClick={() => handleProjectClick(project)}

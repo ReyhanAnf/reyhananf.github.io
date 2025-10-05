@@ -1,110 +1,49 @@
+'use client'
+
 import Image from "next/image"
-import Marquee from "react-fast-marquee"
 import { SOFTWARE, TECH } from "@/lib/vars"
-import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
-  } from "@/components/ui/hover-card"
+import { motion } from "framer-motion"
 
+const allSkills = [
+    ...Object.values(TECH),
+    ...Object.values(SOFTWARE),
+];
 
- export default function Skill(){
-    const skills1 = [
-        {
-            title: "For Backend",
-            tech: [TECH.go, TECH.python]
-        },
-        {
-            title: "Framework Backend",
-            tech: [TECH.gin, TECH.django, TECH.flask]
-        },
-        {
-            title: "For Frontend",
-            tech: [TECH.javascript, TECH.tailwind]
-        },
-        {
-            title: "Framework Frontend",
-            tech: [TECH.nextjs, TECH.reactjs, TECH.shadcn, TECH.aceternity]
-        },
-        {
-            title: "For DevOps & Database",
-            tech: [TECH.docker, TECH.mysql, TECH.postgresql]
-        },
-    ]
-
-    const skills2 = [
-        {
-            title: "For Office",
-            tech: [SOFTWARE.word, SOFTWARE.excel, SOFTWARE.powerpoint]
-        },
-        {
-            title: "For Design Graphics",
-            tech: [SOFTWARE.canva, SOFTWARE.inkscape, SOFTWARE.illustrator]
-        },
-        {
-            title: "For Videography",
-            tech: [SOFTWARE.capcut, SOFTWARE.aftereffects]
-        },
-
-    ]
-
+export default function Skill(){
     return (
-        <div id="skills" className="flex flex-col justify-center items-center my-16 transition-all duration-500">
-            <h1 className="text-3xl sm:4xl font-bold border-b-2 border-[#64CCC5]"><span className="text-[#64CCC5] ">&</span>MySkills</h1>
-            
-                <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="left" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
-                    {skills1.map((skill,i)=>(
-                        <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
-                            <div className="flex flex-row gap-10 items-center">
-                            {skill.tech.map((tech, j)=>(
-                                <HoverCard key={j}>
-                                    <HoverCardTrigger>
-                                        <Image key={j} width={50} height={50} src={tech.image} className={`w-${tech.size}`} alt={tech.name} />
-                                    </HoverCardTrigger>
-                                    <HoverCardContent className="bg-neutral-900 z-50">
-                                        <div className="flex justify-between space-x-4">
-                                            <div className="space-y-1 flex flex-row gap-4 items-center">
-                                                <Image key={j+100} width={50} height={50} src={tech.image} className={`w-16`} alt={tech.name} />
-                                                <h4 className="text-xl font-bold">{tech.name}</h4>
-                                            </div>
-                                        </div>
-                                    </HoverCardContent>
-                                </HoverCard>
+        <div id="skills" className="flex flex-col justify-center items-center my-16 w-full gap-4">
+            <div className="text-center mb-12">
+                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Skills & Expertise</h1>
+                <p className="text-muted-foreground mt-2">Technologies and tools I work with.</p>
+            </div>
 
-                            ))}
-                            </div>
-                            <div>{skill.title}</div>
-                    </div>
-                    ))}
-                </Marquee>
-             <Marquee pauseOnHover={true} speed={60} gradient gradientColor="#030712" gradientWidth={50} direction="right" className=" rounded-2xl py-3 overflow-hidden grid  h-44">
-                {skills2.map((skill,i)=>(
-                    <div key={i} className=" flex flex-col justify-center items-center h-[350px] mx-5 gap-2 pr-20">
-                        <div className="flex flex-row gap-10 items-center">
-                        {skill.tech.map((tech, j)=>(
-                            <HoverCard key={j}>
-                                <HoverCardTrigger>
-                                    <Image key={j} width={50} height={50} src={tech.image} className={`w-${tech.size}`} alt={tech.name} />
-                                </HoverCardTrigger>
-                                <HoverCardContent className="bg-neutral-900 z-50">
-                                    <div className="flex justify-between space-x-4">
-                                        <div className="space-y-1 flex flex-row gap-4 items-center">
-                                            <Image key={j+100} width={50} height={50} src={tech.image} className={`w-16`} alt={tech.name} />
-                                            <h4 className="text-xl font-bold">{tech.name}</h4>
-                                        </div>
-                                    </div>
-                                </HoverCardContent>
-                            </HoverCard>
-
-                        ))}
+            <div className="relative w-full max-w-5xl mx-auto overflow-hidden bg-card border rounded-xl p-6">
+                <motion.div 
+                    className="flex gap-12"
+                    animate={{
+                        x: ['0%', '-100%'],
+                    }}
+                    transition={{
+                        ease: 'linear',
+                        duration: 20, // Adjust duration for speed
+                        repeat: Infinity,
+                    }}
+                >
+                    {/* Render the list of skills twice for a seamless loop */}
+                    {[...allSkills, ...allSkills].map((skill, i) => (
+                        <div key={i} className="flex-shrink-0 flex flex-col items-center justify-center gap-2">
+                            <Image 
+                                width={48} 
+                                height={48} 
+                                src={skill.image} 
+                                className={`w-12 h-12 object-contain`} 
+                                alt={skill.name} 
+                            />
+                            <span className="text-xs text-muted-foreground">{skill.name}</span>
                         </div>
-                        <div>{skill.title}</div>
-                 </div>
-                ))}
-               
-          </Marquee>
-            
-           
+                    ))}
+                </motion.div>
+            </div>
         </div>
     )
- }
+}
