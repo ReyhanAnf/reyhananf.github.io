@@ -5,26 +5,21 @@ import { motion, Variants } from "framer-motion";
 export default function About(){
 
     const sectionVariants: Variants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };
 
     return (
-        <motion.div 
-            id="about"
+        <motion.div
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="flex flex-col items-center justify-center my-24 w-full"
+            className="w-full"
         >
-            <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">About Me</h1>
-                <p className="text-muted-foreground mt-2">From curiosity to creation.</p>
-            </div>
-            <div className="p-10 bg-card text-card-foreground rounded-xl border shadow-md w-full max-w-4xl">
-                <p className="text-lg md:text-xl text-center text-balance leading-relaxed">
-                    Full-Stack Software Engineer specializing in building robust applications with Python, PHP/Laravel, and Next.js. Currently expanding my expertise into Go (Golang) to develop high-performance, scalable solutions
+            <div className="p-5 sm:p-6 md:p-8 bg-secondary/30 rounded-2xl w-full">
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed text-muted-foreground dark:text-slate-300">
+                    Software Engineer specializing in modern web ecosystems including <span className="text-primary font-semibold">React/Next.js</span>, <span className="text-primary font-semibold">Go (Golang)</span>, and <span className="text-primary font-semibold">PHP/Laravel</span>. Experienced in engineering multi-tenant architectures, real-time data flows, and workflow automation. Driven by writing clean, testable code and delivering optimized solutions backed by tangible, verifiable project outcomes.
                 </p>
             </div>
         </motion.div>

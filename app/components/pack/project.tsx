@@ -26,40 +26,47 @@ export default function Project() {
     }
 
     const ProjectDetails = ({ project }: { project: any }) => (
-        <div className="bg-card text-card-foreground rounded-xl border shadow-md overflow-hidden w-full h-full flex flex-col">
+        <div className="bg-secondary/30 text-card-foreground rounded-2xl border-0 shadow-none overflow-hidden w-full h-full flex flex-col hover:bg-secondary/40 transition-all duration-300">
             {project.image != 'none' ? (
-                <div className="relative w-full h-64"> 
-                    <Image src={project.image} alt={project.title} fill className="object-cover" />
+                <div className="relative w-full h-64 bg-muted"> 
+                    <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
             ) : ''}
             <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold mt-1 font-serif">{project.title}</h3>
-                <p className="text-muted-foreground mt-3 flex-grow min-h-[60px]">{project.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-bold tracking-widest text-primary uppercase bg-primary/10 px-2.5 py-1 rounded-full">
+                        {project.category}
+                    </span>
+                </div>
+                <h3 className="text-xl font-bold mt-3 font-serif text-foreground">{project.title}</h3>
+                <p className="text-muted-foreground mt-3 flex-grow min-h-[60px] text-xs sm:text-sm leading-relaxed">{project.description}</p>
+                <div className="mt-5 flex flex-wrap gap-1.5">
                     {project.tech.map((timg: any, i: number) => (
-                        <div key={i} className="flex items-center bg-secondary text-secondary-foreground text-xs px-2 py-1 rounded-full">
+                        <div key={i} className="flex items-center bg-card text-muted-foreground text-[10px] px-2 py-0.5 rounded border border-border">
                             {timg.name}
                         </div>
                     ))}
                 </div>
             </div>
-            <div className="p-4 bg-muted/50 flex justify-end gap-2">
-                <Button asChild variant="secondary">
-                    <Link href={project.source}>View Source</Link>
-                </Button>
-                <Button asChild>
-                    <Link href={project.link}>Visit</Link>
-                </Button>
-            </div>
+            {(project.source !== '#' || project.link !== '#') && (
+                <div className="p-4 bg-secondary/50 flex justify-end gap-2">
+                    {project.source && project.source !== '#' && (
+                        <Button asChild variant="outline" size="sm" className="h-8 text-xs bg-card border border-border">
+                            <Link href={project.source} target="_blank">Source Code</Link>
+                        </Button>
+                    )}
+                    {project.link && project.link !== '#' && (
+                        <Button asChild size="sm" className="h-8 text-xs">
+                            <Link href={project.link} target="_blank">Visit Site</Link>
+                        </Button>
+                    )}
+                </div>
+            )}
         </div>
     );
 
     return (
-        <div id="projects" className="flex flex-col items-center justify-center my-16 w-full gap-4">
-            <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Projects</h1>
-                <p className="text-muted-foreground mt-2">A selection of my personal and academic projects.</p>
-            </div>
+        <div className="flex flex-col w-full">
 
             {/* Desktop Layout */}
             <div className="hidden md:flex flex-col md:flex-row gap-8 w-full max-w-6xl min-h-[70vh]">

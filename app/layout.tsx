@@ -5,7 +5,6 @@ import Credit from "./components/pack/credit";
 
 import { Providers } from "./providers";
 import { cn } from "@/lib/utils";
-import { MainNav } from "./components/pack/main-nav";
 
 export const metadata: Metadata = {
   title: "Reyhan Andrea Firdaus",
@@ -21,8 +20,7 @@ export default function RootLayout({
     <html lang="en" className={cn(fonts.inter.variable, "scroll-smooth")} suppressHydrationWarning style={{scrollBehavior:'smooth'}} >
       <body>
           <Providers>
-            <MainNav />
-             <div className="pt-24"> {/* Add padding top to avoid content being hidden by the fixed header */}
+             <div className="pt-8 sm:pt-12">
                {children}
              </div>
              <Credit />

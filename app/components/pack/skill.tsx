@@ -11,13 +11,8 @@ const allSkills = [
 
 export default function Skill(){
     return (
-        <div id="skills" className="flex flex-col justify-center items-center my-16 w-full gap-4">
-            <div className="text-center mb-12">
-                <h1 className="text-3xl sm:text-4xl font-bold text-foreground font-serif">Skills & Expertise</h1>
-                <p className="text-muted-foreground mt-2">Technologies and tools I work with.</p>
-            </div>
-
-            <div className="relative w-full max-w-5xl mx-auto overflow-hidden bg-card border rounded-xl p-6">
+        <div className="flex flex-col justify-center items-center w-full">
+            <div className="relative w-full overflow-hidden bg-secondary/20 rounded-2xl p-4 sm:p-5">
                 <motion.div 
                     className="flex gap-12"
                     animate={{
@@ -25,21 +20,21 @@ export default function Skill(){
                     }}
                     transition={{
                         ease: 'linear',
-                        duration: 20, // Adjust duration for speed
+                        duration: 25, // Slightly slower for readability
                         repeat: Infinity,
                     }}
                 >
                     {/* Render the list of skills twice for a seamless loop */}
                     {[...allSkills, ...allSkills].map((skill, i) => (
-                        <div key={i} className="flex-shrink-0 flex flex-col items-center justify-center gap-2">
+                        <div key={i} className="flex-shrink-0 flex flex-col items-center justify-center gap-1.5">
                             <Image 
-                                width={48} 
-                                height={48} 
+                                width={32} 
+                                height={32} 
                                 src={skill.image} 
-                                className={`w-12 h-12 object-contain`} 
+                                className={`w-8 h-8 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-300`} 
                                 alt={skill.name} 
                             />
-                            <span className="text-xs text-muted-foreground">{skill.name}</span>
+                            <span className="text-[10px] font-medium text-muted-foreground">{skill.name}</span>
                         </div>
                     ))}
                 </motion.div>

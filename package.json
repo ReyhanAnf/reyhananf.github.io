@@ -21,7 +21,7 @@
     "@tsparticles/slim": "^3.5.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.22",
+    "framer-motion": "^12.38.0",
     "lucide-react": "^0.438.0",
     "motion": "^12.23.22",
     "next": "14.2.7",
@@ -33,7 +33,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-type-animation": "^3.2.0",
     "sharp": "^0.33.5",
-    "tailwind-merge": "^2.5.2",
+    "tailwind-merge": "^2.6.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.158.0"
   },

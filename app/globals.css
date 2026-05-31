@@ -73,8 +73,8 @@
     scroll-behavior: smooth;
   }
   html {
-    --gradient-start: #f0f9ff;
-    --gradient-mid: #f7fbff;
+    --gradient-start: #f8fafc;
+    --gradient-mid: #fafbfc;
     --gradient-end: #ffffff;
   }
 
@@ -92,5 +92,13 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+  }
+  .dark .bg-dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
   }
 }

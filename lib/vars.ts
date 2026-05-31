@@ -294,32 +294,32 @@ export const EXPERIENCE = [
     {
         title: "Fullstack Developer",
         company: "Inovasi Alfatih Maulana – Talents Mapping",
-        date: "Jan 2025 – Sekarang",
-        description: "Mengembangkan fitur LMS, training, dashboard analitik, generator result report assessment powerpoint, dan role-based system. Menerapkan cron job handler, reminder, serta verifikasi dokumen."
+        date: "Jan 2025 – Present",
+        description: "Engineered and maintained a multi-tenant Learning Management System (LMS), automated PowerPoint result assessment generators, and role-based access control (RBAC) systems. Implemented background task scheduling (cron jobs) for automated notifications and electronic document verification workflows."
     },
     {
-        title: "Eko Berseka",
-        company: "Bank Sampah Berseka Tasikmalaya",
-        date: "September 2025 – Oktober 2025",
-        description: "Membangun sistem manajemen inventori limbah, stok, nasabah, dan alur kas (akuntansi) serta laporan"
+        title: "Web Developer",
+        company: "Bank Sampah Berseka Tasikmalaya (Eko Berseka)",
+        date: "Sep 2025 – Oct 2025",
+        description: "Designed database architectures and developed an integrated waste inventory manager, customer transaction ledger, and real-time cash flow accounting module to optimize waste management bank operations."
     },
     {
-        title: "Desa Wisata Taraju",
+        title: "Web Developer",
         company: "Desa Wisata Taraju",
-        date: "Agustus 2025 – September 2025",
-        description: "Membangun sistem pemesanan paket wisata, voucher, booking, kelola paket dan scan tiket."
+        date: "Aug 2025 – Sep 2025",
+        description: "Built a comprehensive tour booking and reservation system integrated with digital voucher distribution, booking scheduling, and a QR ticket scanning system to streamline visitor check-in."
     },
     {
         title: "Web Developer",
         company: "Yasiin.id",
         date: "Jun 2025 – Jul 2025",
-        description: "Membangun sistem registrasi acara berbasis QR-Code dan notifikasi otomatis menggunakan cron job serta WhatsApp blast."
+        description: "Developed a rapid QR-code-based event registration platform featuring automated mass notification delivery (WhatsApp integration) via background task schedulers."
     },
     {
         title: "Freelancer Website Manager",
         company: "HM Infotech",
-        date: "Sep 2024 – Okt 2024",
-        description: "Mengatur konfigurasi Google AdSense dan pengelolaan website remote untuk klien dari India."
+        date: "Sep 2024 – Oct 2024",
+        description: "Configured Google AdSense deployments, executed site speed optimizations and core web vitals tuning, and managed client web properties remotely with SEO content strategies."
     },
 ]
 
