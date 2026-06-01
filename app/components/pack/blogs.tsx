@@ -2,7 +2,7 @@
 
 import React from 'react'
 import type { BlogPost } from './types'
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import Link from 'next/link'
 
 import { IconArrowUpRight, IconBooks } from '@tabler/icons-react'
@@ -13,7 +13,7 @@ type BlogsProps = {
 
 const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
@@ -21,7 +21,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 15 },
     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
   };
