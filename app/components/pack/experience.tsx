@@ -2,59 +2,50 @@
 
 import { EXPERIENCE } from "@/lib/vars";
 import { motion, Variants } from "framer-motion";
-import { IconBriefcase, IconCalendar } from "@tabler/icons-react";
 
 export default function Experience() {
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 }
+            transition: { staggerChildren: 0.15 }
         }
     };
 
     const itemVariants: Variants = {
-        hidden: { opacity: 0, x: -30 },
-        visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
     };
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="w-full">
             <motion.div 
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
                 variants={containerVariants}
-                className="w-full flex flex-col relative pl-8 md:pl-12 border-l-2 border-border"
+                className="w-full flex flex-col"
             >
                 {EXPERIENCE.map((exp, index) => (
                     <motion.div 
                         key={index} 
                         variants={itemVariants}
-                        className="relative w-full mb-8 last:mb-0 group"
+                        className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-6 lg:gap-x-8 py-10 md:py-16 border-t border-border group"
                     >
-                        {/* Timeline Dot & Icon */}
-                        <div className="absolute -left-[45px] md:-left-[61px] top-1.5 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-card border border-border text-primary shadow-none group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                            <IconBriefcase size={14} />
+                        {/* Left Meta */}
+                        <div className="col-span-4 md:col-span-3 lg:col-span-3 flex flex-col gap-1 mb-6 md:mb-0">
+                             <p className="text-xs font-bold tracking-widest text-foreground uppercase">{exp.date}</p>
+                             <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mt-1">
+                                {exp.company}
+                             </p>
                         </div>
-
-                        {/* Content Card (Borderless, clean background difference) */}
-                        <div className="bg-secondary/30 p-5 md:p-6 rounded-2xl border-0 shadow-none hover:bg-secondary/40 transition-all duration-300">
-                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                                <div>
-                                    <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                                        {exp.title}
-                                    </h3>
-                                    <p className="text-sm text-primary font-medium mt-0.5">
-                                        {exp.company}
-                                    </p>
-                                </div>
-                                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-card/60 text-muted-foreground text-[10px] sm:text-xs font-semibold w-fit self-start md:self-center">
-                                    <IconCalendar size={10} className="text-primary" />
-                                    <span>{exp.date}</span>
-                                </div>
-                            </div>
-                            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed whitespace-pre-line">
+                        
+                        {/* Right Content */}
+                        <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-5 flex flex-col gap-6">
+                            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+                                {exp.title}
+                            </h3>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                                 {exp.description}
                             </p>
                         </div>

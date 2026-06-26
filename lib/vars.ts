@@ -166,6 +166,15 @@ export const SOFTWARE = {
 
 export const PROJECT = [
     {
+        title: "EduTrack",
+        description : "WebApp for social study group with AI Integrated for quiz, flashcard, and note summaries",
+        image: "/project/edutrack.png",
+        tech: [TECH.laravel, TECH.reactjs, TECH.tailwind, TECH.mysql],
+        category: "fullstack",
+        source: "#",
+        link: "https://edutrack.enjoydewata.com"
+    },
+    {
         title: "Talents Mapping",
         description : "Developed multiple modules for talentsmapping.id including LMS, Training, custom rules, document verification, analytics dashboard, and multi-tenant features.",
         image: "/project/talentsmapping.png",
@@ -173,24 +182,6 @@ export const PROJECT = [
         category: "fullstack",
         source: "#",
         link: "https://talentsmapping.id"
-    },
-    {
-        title: "Eko Berseka",
-        description : "Building a waste inventory, stock, customer, and cash flow (accounting) management system, as well as reporting",
-        image: "none",
-        tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
-        category: "fullstack",
-        source: "#",
-        link: "https://enjoydewata.com"
-    },
-    {
-        title: "Desa Wisata Taraju",
-        description : "Building a tour package reservation system, vouchers, bookings, package management, and ticket scanning.",
-        image: "/project/dewata.png",
-        tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
-        category: "fullstack",
-        source: "#",
-        link: "https://enjoydewata.com"
     },
     {
         title: "Yasiin.id Registration System",
@@ -202,14 +193,32 @@ export const PROJECT = [
         link: "https://yasiin.id"
     },
     {
-        title: "Rinfonet Blog",
-        description : "Managed and developed SEO-optimized blog focusing on wireless technology articles and monetization via Google AdSense.",
-        image: "none",
-        tech: [TECH.nextjs, TECH.tailwind],
-        category: "frontend",
-        source: "https://reyhananf.me",
-        link: "https://reyhananf.me"
+        title: "Eko Berseka",
+        description : "Building a waste inventory, stock, customer, and cash flow (accounting) management system, as well as reporting",
+        image: "/project/ekoberseka.png",
+        tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
+        category: "fullstack",
+        source: "#",
+        link: "https://ekoberseka.com"
     },
+    {
+        title: "Desa Wisata Taraju",
+        description : "Building a tour package reservation system, vouchers, bookings, package management, and ticket scanning.",
+        image: "/project/dewata.png",
+        tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
+        category: "fullstack",
+        source: "#",
+        link: "https://enjoydewata.com"
+    },
+    // {
+    //     title: "Rinfonet Blog",
+    //     description : "Managed and developed SEO-optimized blog focusing on wireless technology articles and monetization via Google AdSense.",
+    //     image: "none",
+    //     tech: [TECH.nextjs, TECH.tailwind],
+    //     category: "frontend",
+    //     source: "https://reyhananf.me",
+    //     link: "https://reyhananf.me"
+    // },
 ]
 
 export const EXPERIMENT = [

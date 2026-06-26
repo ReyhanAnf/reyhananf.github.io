@@ -1,60 +1,48 @@
-import About from "./components/pack/about";
-import BlogsWrapper from "./components/pack/blogs_wrapper";
-import Achievements from "./components/pack/certificates";
 import Contact from "./components/pack/contact";
 import Experience from "./components/pack/experience";
-import Experiment from "./components/pack/experiment";
 import Header from "./components/pack/header";
 import Project from "./components/pack/project";
-import Skill from "./components/pack/skill";
+import Experiment from "./components/pack/experiment";
 
 export default function Home() {
-  const sections = [
-    { id: "about", title: "Profile", component: <About />, shaded: true },
-    { id: "skills", title: "Expertise", component: <Skill />, shaded: false },
-    { id: "experience", title: "Experience", component: <Experience />, shaded: true },
-    { id: "projects", title: "Selected Work", component: <Project />, shaded: false },
-    { id: "experiments", title: "R&D Research", component: <Experiment />, shaded: true },
-    { id: "achievements", title: "Credentials", component: <Achievements />, shaded: false },
-    { id: "blogs", title: "Publications", component: <BlogsWrapper />, shaded: true },
-    { id: "contact", title: "Direct Contact", component: <Contact />, shaded: false },
-  ];
-
   return (
-    <div className="relative min-h-screen bg-dot-grid selection:bg-primary/20 font-sans pb-32">
-      {/* Asymmetrical Premium Executive Layout */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 space-y-12">
+    <div className="relative min-h-screen bg-background pb-32">
+      <main className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-32 md:gap-y-48 pt-24 md:pt-32">
         
-        {/* Full-width Header Block */}
-        <section className="bg-transparent p-0 relative overflow-hidden group">
+        <section id="hero" className="col-span-4 md:col-span-8 lg:col-span-12">
           <Header />
         </section>
 
-        {/* Full-width Sequential Section Stack */}
-        <div className="space-y-8 divide-y divide-border/20 pt-6">
-          {sections.map((sec, idx) => (
-            <div 
-              key={sec.id} 
-              id={sec.id} 
-              className={`flex flex-col gap-4 pt-8 first:pt-0 first:border-t-0 border-border/20 ${
-                sec.shaded ? "bg-secondary/15 p-5 sm:p-6 rounded-2xl border-0" : ""
-              }`}
-            >
-              {/* Top Row: Clean Minimal Header */}
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 animate-pulse" />
-                <h3 className="text-xs font-bold tracking-widest text-primary uppercase font-mono">
-                  {sec.title}
-                </h3>
-              </div>
-              
-              {/* Bottom Row: Full-width Component */}
-              <div className="w-full">
-                {sec.component}
-              </div>
-            </div>
-          ))}
-        </div>
+        <section id="projects" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
+          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
+            <span>01</span>
+            <span>/</span>
+            <span>Selected Projects</span>
+          </div>
+          <Project />
+        </section>
+
+        <section id="experiments" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
+          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
+            <span>02</span>
+            <span>/</span>
+            <span>Experiments</span>
+          </div>
+          <Experiment />
+        </section>
+
+        <section id="experience" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
+          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
+            <span>03</span>
+            <span>/</span>
+            <span>Experience</span>
+          </div>
+          <Experience />
+        </section>
+
+        <section id="contact" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
+          <Contact />
+        </section>
 
       </main>
     </div>

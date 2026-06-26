@@ -2,88 +2,58 @@
 
 import { Button } from "@/components/ui/button";
 import { motion, Variants } from "framer-motion";
-import { IconMail, IconBrandLinkedin, IconBrandGithub, IconArrowUpRight } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 import Link from "next/link";
 
 export default function Contact() {
+    const fadeUp: Variants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+        }
+    };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
-  };
+    const handleMailClick = () => {
+        window.open("mailto:andreafirdausr@gmail.com", "_blank");
+    };
 
-  const handleMailClick = () => {
-    const subject = encodeURIComponent("Collaboration Inquiry");
-    const body = encodeURIComponent("Hi Reyhan,\n\nI would like to discuss a potential project or collaboration.");
-    window.open(`mailto:andreafirdausr@gmail.com?subject=${subject}&body=${body}`, "_blank");
-  };
-
-  const channels = [
-    {
-      icon: IconMail,
-      label: "Direct Email",
-      value: "andreafirdausr@gmail.com",
-      actionText: "Send Mail",
-      onClick: handleMailClick,
-      href: "#"
-    },
-    {
-      icon: IconBrandLinkedin,
-      label: "LinkedIn Professional",
-      value: "reyhan-andrea-firdaus",
-      actionText: "Connect",
-      href: "https://www.linkedin.com/in/reyhan-andrea-firdaus/"
-    },
-    {
-      icon: IconBrandGithub,
-      label: "GitHub Source Audits",
-      value: "ReyhanAnf",
-      actionText: "View Code",
-      href: "https://github.com/ReyhanAnf"
-    }
-  ];
-
-  return (
-    <div className="flex flex-col w-full">
-      <div className="w-full flex flex-col gap-3">
-        {channels.map((ch, idx) => {
-          const Icon = ch.icon;
-          return (
-            <motion.div
-              key={idx}
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="w-full bg-secondary/25 hover:bg-secondary/40 p-4 rounded-xl flex items-center justify-between gap-3 group transition-all duration-300"
+    return (
+        <div className="w-full">
+            <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+                className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-6 lg:gap-x-8 py-24 md:py-32"
             >
-              <div className="flex items-center gap-3 min-w-0">
-                <div className="w-10 h-10 rounded-lg bg-card text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  <Icon className="w-5 h-5" />
+                <div className="col-span-4 md:col-span-8 lg:col-span-12 flex flex-col items-center justify-center text-center gap-12">
+                    <h2 className="text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] font-bold tracking-tighter text-foreground max-w-5xl leading-[1.05]">
+                        Let's build something exceptional.
+                    </h2>
+                    
+                    <div className="flex flex-col items-center gap-8">
+                        <Button 
+                            size="lg" 
+                            onClick={handleMailClick} 
+                            variant="default"
+                            className="rounded-none bg-foreground text-background px-12 py-8 text-xs font-bold tracking-widest uppercase hover:bg-foreground/90 transition-colors duration-300"
+                        >
+                            Contact Me
+                        </Button>
+                        
+                        <div className="flex items-center gap-6 mt-4">
+                            <Link href="https://github.com/reyhananf" target="_blank" aria-label="GitHub" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+                                <IconBrandGithub className="w-5 h-5" stroke={1.5} />
+                            </Link>
+                            <Link href="https://linkedin.com/in/reyhananf" target="_blank" aria-label="LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors duration-300">
+                                <IconBrandLinkedin className="w-5 h-5" stroke={1.5} />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <div className="min-w-0">
-                  <span className="text-[10px] text-primary font-semibold uppercase tracking-wider block">{ch.label}</span>
-                  <span className="text-xs text-muted-foreground font-medium truncate block mt-0.5">{ch.value}</span>
-                </div>
-              </div>
-              
-              {ch.onClick ? (
-                <Button onClick={ch.onClick} size="sm" variant="outline" className="h-8 px-2.5 text-xs bg-card hover:bg-secondary border border-border gap-1 flex-shrink-0">
-                  <span>{ch.actionText}</span>
-                  <IconArrowUpRight className="w-3.5 h-3.5" />
-                </Button>
-              ) : (
-                <Button asChild size="sm" variant="outline" className="h-8 px-2.5 text-xs bg-card hover:bg-secondary border border-border gap-1 flex-shrink-0">
-                  <Link href={ch.href} target="_blank">
-                    <span>{ch.actionText}</span>
-                    <IconArrowUpRight className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform duration-300" />
-                  </Link>
-                </Button>
-              )}
             </motion.div>
-          );
-        })}
-      </div>
-    </div>
+        </div>
   );
 }
