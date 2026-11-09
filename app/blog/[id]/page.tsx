@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 // This function generates static pages for each blog post at build time
 export async function generateStaticParams() {
     const posts = await getPosts();
+    if (!posts || posts.length === 0) {
+        return [{ id: 'default' }];
+    }
     return posts.map((post) => ({
         id: post.id,
     }));

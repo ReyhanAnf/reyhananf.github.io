@@ -8,7 +8,8 @@ export async function getPosts(): Promise<BlogPost[]> {
         });
 
         if (!res.ok) {
-            throw new Error('Failed to fetch blog posts');
+            console.warn(`[blogs] Feed unavailable (status: ${res.status}). Displaying empty state.`);
+            return [];
         }
 
         const data = await res.json();
@@ -26,7 +27,7 @@ export async function getPosts(): Promise<BlogPost[]> {
 
         return entries;
     } catch (error) {
-        console.error('Error fetching blog posts:', error);
+        console.warn('[blogs] Unable to fetch blog feed:', error instanceof Error ? error.message : error);
         return []; // Return an empty array on error
     }
 }

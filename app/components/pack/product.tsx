@@ -50,7 +50,7 @@ export default function Product() {
                       src={product.image} 
                       alt={product.title} 
                       fill 
-                      className="object-cover transition-transform duration-[1s] ease-out group-hover:scale-105"
+                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
