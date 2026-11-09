@@ -49,10 +49,10 @@
   }
 
   * { @apply border-border; }
-  html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
-  body { @apply bg-background text-foreground antialiased; }
+  html { scroll-behavior: smooth; scroll-padding-top: 7rem; overflow-x: clip; }
+  body { @apply bg-background text-foreground antialiased; overflow-x: clip; }
   ::selection { @apply bg-primary/15 text-foreground; }
-  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 5px; }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 4px; }
   #main-content:focus { outline: none; }
 }
 
@@ -60,7 +60,7 @@
   .page-shell { @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12; }
   .portfolio-section { @apply border-t border-border pb-16 pt-10 sm:pb-24 sm:pt-12; }
   .eyebrow { @apply text-[10px] font-medium uppercase leading-relaxed tracking-[0.14em] text-muted-foreground; }
-  .action-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-lg px-5 py-3 text-xs font-medium transition-colors; }
+  .action-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-lg px-5 py-3 text-xs font-medium transition-colors active:translate-y-[1px] active:scale-[0.99] select-none; }
   .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-foreground px-5 py-3 text-sm text-background focus:translate-y-0; }
   .project-card:focus-visible h3 { @apply text-primary; }
 }

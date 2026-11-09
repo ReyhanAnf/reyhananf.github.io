@@ -75,7 +75,7 @@ export function MainNav() {
     <header ref={header} className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl">
       <div className="page-shell flex h-20 items-center justify-between gap-6">
         <Link href="/" aria-label="Reyhan Andrea Firdaus — home" onClick={() => setOpen(false)} className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground text-[11px] font-semibold tracking-tight text-background">raf<span className="text-blue-400">.</span></span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-foreground text-[11px] font-semibold tracking-tight text-background">raf<span className="text-primary">.</span></span>
           <span className="text-sm font-semibold tracking-tight">Reyhan Andrea F.</span>
         </Link>
         <nav aria-label="Main navigation" className="hidden items-center gap-1 md:flex">

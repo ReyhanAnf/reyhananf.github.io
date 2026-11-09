@@ -8,15 +8,12 @@ export default function Project() {
     <div className="grid gap-x-7 gap-y-10 md:grid-cols-2 md:gap-y-12">
       {PROJECT.map((project, index) => {
         const featured = index === 0;
+        const hostname = new URL(project.link).hostname;
         return (
           <article key={project.title} className={cn("group relative min-w-0", featured && "md:col-span-2")}>
-            <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${project.title} (opens in new tab)`} className={cn("project-card block rounded-xl", featured && "overflow-hidden border border-border bg-card md:grid md:grid-cols-[1.35fr_1fr] md:items-center")}>
-              <div className={cn("overflow-hidden rounded-xl border border-border bg-secondary p-4 pb-0 sm:p-6 sm:pb-0", featured && "rounded-b-none border-0 bg-[#edf1f7] dark:bg-secondary md:rounded-none md:p-8 md:pb-0")}>
-                <div className="overflow-hidden rounded-t-lg border border-border/80 bg-background shadow-[0_2px_16px_-6px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="flex h-7 items-center gap-1.5 border-b border-border/70 bg-background px-3" aria-hidden="true">
-                    <span className="h-1.5 w-1.5 rounded-full bg-foreground/15" /><span className="h-1.5 w-1.5 rounded-full bg-foreground/15" /><span className="h-1.5 w-1.5 rounded-full bg-foreground/15" />
-                    <span className="ml-3 truncate font-mono text-[8px] text-muted-foreground">{new URL(project.link).hostname}</span>
-                  </div>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${project.title} (opens in new tab)`} className={cn("project-card block rounded-xl", featured && "overflow-hidden border border-border bg-card md:grid md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] md:items-center")}>
+              <div className={cn("overflow-hidden rounded-xl border border-border bg-secondary/60 p-4 sm:p-6", featured && "rounded-b-none border-0 bg-secondary/40 dark:bg-secondary/20 md:rounded-none md:p-8")}>
+                <div className="overflow-hidden rounded-lg border border-border/80 bg-background shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
                   <div className={cn("relative aspect-[16/10] overflow-hidden", featured && "md:aspect-[4/3]")}>
                     <Image src={project.image} alt={`${project.title} application preview`} fill sizes={featured ? "(max-width: 767px) 100vw, 640px" : "(max-width: 767px) 100vw, 540px"} className="object-cover object-top" />
                   </div>
@@ -25,7 +22,11 @@ export default function Project() {
               <div className={cn("pt-5", featured && "p-6 sm:p-8 lg:p-10")}>
                 <div className="mb-3 flex items-center justify-between gap-3">
                   <span className="eyebrow text-[10px]">{featured ? "Featured project" : "Full-stack development"}</span>
-                  <span className="font-mono text-[10px] text-muted-foreground">0{index + 1}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[10px] text-muted-foreground">{hostname}</span>
+                    <span className="text-muted-foreground/40">·</span>
+                    <span className="font-mono text-[10px] text-muted-foreground">0{index + 1}</span>
+                  </div>
                 </div>
                 <div className="flex items-start justify-between gap-4">
                   <h3 className={cn("text-xl font-semibold leading-snug tracking-[-0.035em] transition-colors group-hover:text-primary", featured && "sm:text-3xl")}>{project.title}</h3>

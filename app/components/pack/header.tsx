@@ -8,18 +8,18 @@ export default function Header() {
         <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
         <p className="eyebrow">Software engineer · Indonesia</p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-start lg:gap-20">
-        <h1 className="text-[clamp(2.25rem,10.8vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.065em] sm:text-6xl lg:text-[clamp(3.75rem,6.2vw,5rem)]">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-start lg:gap-20">
+        <h1 className="min-w-0 [overflow-wrap:anywhere] text-[clamp(2.25rem,10.8vw,2.75rem)] font-semibold leading-[1.04] tracking-[-0.065em] sm:text-6xl lg:text-[clamp(3.75rem,6.2vw,5rem)]">
           Reyhan Andrea<br />Firdaus<span className="text-primary">.</span>
         </h1>
-        <div className="lg:pb-1">
-          <h2 className="mb-4 text-xl font-medium leading-snug tracking-tight sm:text-2xl">Thoughtful code.<br />Useful experiences.</h2>
+        <div className="min-w-0 lg:pb-1">
+          <h2 className="mb-4 text-xl font-medium leading-snug tracking-tight sm:text-2xl [overflow-wrap:anywhere]">Thoughtful code.<br />Useful experiences.</h2>
           <p className="max-w-md text-sm leading-7 text-muted-foreground sm:text-[15px]">
             I build web applications that make everyday work simpler. From a clean interface to the systems behind it, I care about making things work well.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-5">
-            <a href="#projects" className="action-button bg-foreground text-background hover:bg-primary hover:text-primary-foreground">Explore my work <ArrowDown size={15} aria-hidden="true" /></a>
-            <a href="mailto:andreafirdausr@gmail.com" className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium transition-colors hover:text-primary">Get in touch <ArrowUpRight size={15} aria-hidden="true" /></a>
+            <a href="#projects" className="action-button whitespace-nowrap bg-foreground text-background hover:bg-primary hover:text-primary-foreground">Explore my work <ArrowDown size={15} aria-hidden="true" /></a>
+            <a href="mailto:andreafirdausr@gmail.com" className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap text-[13px] font-medium transition-colors hover:text-primary">Get in touch <ArrowUpRight size={15} aria-hidden="true" /></a>
           </div>
         </div>
       </div>

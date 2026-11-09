@@ -6,9 +6,9 @@ export default function Blogs({ posts }: { posts: BlogPost[] }) {
     return (
       <div className="max-w-3xl rounded-xl border border-border bg-card p-7 sm:p-10">
         <BookOpen size={24} className="mb-5 text-muted-foreground" aria-hidden="true" />
-        <h2 className="text-lg font-semibold tracking-tight">More notes on the blog</h2>
-        <p className="mt-2 text-sm leading-7 text-muted-foreground">The article feed is unavailable right now. You can still read my posts directly on the blog.</p>
-        <a href="https://reyntech.blogspot.com" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary">Visit the blog <ArrowUpRight size={15} aria-hidden="true" /><span className="sr-only"> (opens in new tab)</span></a>
+        <h2 className="text-lg font-semibold tracking-tight">Articles & Technical Notes</h2>
+        <p className="mt-2 text-sm leading-7 text-muted-foreground">Articles and technical writing are currently being migrated and updated. In the meantime, feel free to explore my source code and projects directly on GitHub.</p>
+        <a href="https://github.com/reyhananf" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline">View GitHub Profile <ArrowUpRight size={15} aria-hidden="true" /><span className="sr-only"> (opens in new tab)</span></a>
       </div>
     );
   }

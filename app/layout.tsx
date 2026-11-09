@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={fonts.inter.variable} suppressHydrationWarning>
+    <html lang="en" className={`${fonts.inter.variable} ${fonts.playfairDisplay.variable}`} suppressHydrationWarning>
       <body className="relative flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
         <Providers>
           <a href="#main-content" className="skip-link">Skip to content</a>

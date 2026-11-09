@@ -8,9 +8,9 @@ import { PROJECT, EXPERIMENT } from "@/lib/vars";
 function SectionHeading({ number, title, description, count }: { number: string; title: string; description: string; count?: number }) {
   return (
     <div className="mb-9 flex flex-col justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
-      <div>
+      <div className="min-w-0">
         <p className="eyebrow mb-4"><span className="mr-3 text-primary">{number}</span> {title === "Selected work" ? "Built with purpose" : title === "Playground" ? "A space to explore" : "The journey so far"}</p>
-        <h2 className="flex items-start gap-3 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
+        <h2 className="flex items-start gap-3 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl [overflow-wrap:anywhere]">
           {title}{count !== undefined && <span className="mt-1 rounded-full border border-border px-2 py-1 font-mono text-[10px] font-normal leading-none tracking-normal text-muted-foreground">{String(count).padStart(2, "0")}</span>}
         </h2>
       </div>
