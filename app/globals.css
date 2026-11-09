@@ -1,85 +1,80 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Pure white */
-    --foreground: 0 0% 7%; /* Near Black: #111111 */
-
-    --card: 0 0% 98%; /* Off White: #FAFAFA */
-    --card-foreground: 0 0% 7%;
-
+    --background: 40 20% 99%;
+    --foreground: 225 18% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 18% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
-
-    --primary: 220 100% 50%; /* Single stark accent: Blue #0055FF */
+    --popover-foreground: 225 18% 13%;
+    --primary: 222 80% 47%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 98%; /* Off White */
-    --secondary-foreground: 0 0% 7%;
-
-    --muted: 0 0% 96%; /* Very Light Gray */
-    --muted-foreground: 0 0% 45%;
-
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 7%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 90%; /* Light Gray: #E5E5E5 for 1px lines */
-    --input: 0 0% 90%;
-    --ring: 220 100% 50%;
-
-    --radius: 0rem; /* Swiss modernism uses sharp corners, or extremely subtle. The prompt said "rounded corners" for browser mockups, but general UI should be sharp or very subtle. I'll use 0.25rem for subtle. */
+    --secondary: 220 16% 96%;
+    --secondary-foreground: 225 18% 13%;
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 7% 43%;
+    --accent: 220 16% 95%;
+    --accent-foreground: 225 18% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 12% 89%;
+    --input: 220 12% 89%;
+    --ring: 222 80% 47%;
+    --radius: 0.625rem;
   }
 
   .dark {
-    --background: 0 0% 4%; /* Near Black: #0A0A0A */
-    --foreground: 0 0% 98%; /* Off White: #FAFAFA */
-
-    --card: 0 0% 7%; /* Dark Gray */
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 220 100% 50%; /* Blue accent */
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 93%;
-
-    --border: 0 0% 15%; /* Dark Gray for 1px lines */
-    --input: 0 0% 15%;
-    --ring: 220 100% 50%;
+    --background: 225 14% 8%;
+    --foreground: 220 14% 95%;
+    --card: 225 12% 11%;
+    --card-foreground: 220 14% 95%;
+    --popover: 225 12% 11%;
+    --popover-foreground: 220 14% 95%;
+    --primary: 219 95% 72%;
+    --primary-foreground: 225 14% 8%;
+    --secondary: 225 10% 13%;
+    --secondary-foreground: 220 14% 95%;
+    --muted: 225 10% 15%;
+    --muted-foreground: 220 9% 66%;
+    --accent: 225 10% 15%;
+    --accent-foreground: 220 14% 95%;
+    --destructive: 0 63% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 9% 21%;
+    --input: 225 9% 21%;
+    --ring: 219 95% 72%;
   }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+  body { @apply bg-background text-foreground antialiased; }
+  ::selection { @apply bg-primary/15 text-foreground; }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 5px; }
+  #main-content:focus { outline: none; }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-foreground;
-  }
+@layer components {
+  .page-shell { @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-12; }
+  .portfolio-section { @apply border-t border-border pb-16 pt-10 sm:pb-24 sm:pt-12; }
+  .eyebrow { @apply text-[10px] font-medium uppercase leading-relaxed tracking-[0.14em] text-muted-foreground; }
+  .action-button { @apply inline-flex min-h-11 items-center justify-center gap-2.5 rounded-lg px-5 py-3 text-xs font-medium transition-colors; }
+  .skip-link { @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg bg-foreground px-5 py-3 text-sm text-background focus:translate-y-0; }
+  .project-card:focus-visible h3 { @apply text-primary; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,6 +1,6 @@
 export const TECH = {
     javascript : {
-        name: "Javascript",
+        name: "JavaScript",
         image: "/tech/javascript.svg",
         size: "16"
     },
@@ -10,12 +10,12 @@ export const TECH = {
         size: "20"
     },
     reactjs : {
-        name: "ReactJs",
+        name: "React",
         image: "/tech/reactjs.svg",
         size: "16"
     },
     nextjs : {
-        name: "NextJs",
+        name: "Next.js",
         image: "/tech/next.svg",
         size: "26"
     },
@@ -167,7 +167,7 @@ export const SOFTWARE = {
 export const PROJECT = [
     {
         title: "EduTrack",
-        description : "WebApp for social study group with AI Integrated for quiz, flashcard, and note summaries",
+        description : "A collaborative study platform with AI-powered quizzes, flashcards, and note summaries. Built to make learning together easier.",
         image: "/project/edutrack.png",
         tech: [TECH.laravel, TECH.reactjs, TECH.tailwind, TECH.mysql],
         category: "fullstack",
@@ -176,7 +176,7 @@ export const PROJECT = [
     },
     {
         title: "Talents Mapping",
-        description : "Developed multiple modules for talentsmapping.id including LMS, Training, custom rules, document verification, analytics dashboard, and multi-tenant features.",
+        description : "A multi-tenant platform for learning and talent development, with training modules, document verification, and analytics dashboards.",
         image: "/project/talentsmapping.png",
         tech: [TECH.laravel, TECH.nextjs, TECH.tailwind, TECH.mysql],
         category: "fullstack",
@@ -185,7 +185,7 @@ export const PROJECT = [
     },
     {
         title: "Yasiin.id Registration System",
-        description : "Developed a QR-based event registration system with WhatsApp blast notifications and time analytics for check-in events.",
+        description : "An event registration system with QR check-in, WhatsApp notifications, and attendance analytics to keep events running smoothly.",
         image: "/project/yasiin.png",
         tech: [TECH.laravel, TECH.javascript, TECH.tailwind],
         category: "fullstack",
@@ -194,7 +194,7 @@ export const PROJECT = [
     },
     {
         title: "Eko Berseka",
-        description : "Building a waste inventory, stock, customer, and cash flow (accounting) management system, as well as reporting",
+        description : "An integrated waste bank management system for inventory, customer transactions, cash flow, and reporting.",
         image: "/project/ekoberseka.png",
         tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
         category: "fullstack",
@@ -203,7 +203,7 @@ export const PROJECT = [
     },
     {
         title: "Desa Wisata Taraju",
-        description : "Building a tour package reservation system, vouchers, bookings, package management, and ticket scanning.",
+        description : "A tourism booking platform connecting tour packages, reservations, digital vouchers, and QR ticket scanning.",
         image: "/project/dewata.png",
         tech: [TECH.laravel, TECH.vuejs, TECH.tailwind, TECH.mysql],
         category: "fullstack",

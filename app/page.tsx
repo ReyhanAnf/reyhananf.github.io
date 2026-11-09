@@ -3,48 +3,39 @@ import Experience from "./components/pack/experience";
 import Header from "./components/pack/header";
 import Project from "./components/pack/project";
 import Experiment from "./components/pack/experiment";
+import { PROJECT, EXPERIMENT } from "@/lib/vars";
+
+function SectionHeading({ number, title, description, count }: { number: string; title: string; description: string; count?: number }) {
+  return (
+    <div className="mb-9 flex flex-col justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
+      <div>
+        <p className="eyebrow mb-4"><span className="mr-3 text-primary">{number}</span> {title === "Selected work" ? "Built with purpose" : title === "Playground" ? "A space to explore" : "The journey so far"}</p>
+        <h2 className="flex items-start gap-3 text-3xl font-semibold tracking-[-0.045em] sm:text-4xl">
+          {title}{count !== undefined && <span className="mt-1 rounded-full border border-border px-2 py-1 font-mono text-[10px] font-normal leading-none tracking-normal text-muted-foreground">{String(count).padStart(2, "0")}</span>}
+        </h2>
+      </div>
+      <p className="max-w-xs text-sm leading-relaxed text-muted-foreground sm:text-right">{description}</p>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-background pb-32">
-      <main className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-32 md:gap-y-48 pt-24 md:pt-32">
-        
-        <section id="hero" className="col-span-4 md:col-span-8 lg:col-span-12">
-          <Header />
-        </section>
-
-        <section id="projects" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
-          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
-            <span>01</span>
-            <span>/</span>
-            <span>Selected Projects</span>
-          </div>
-          <Project />
-        </section>
-
-        <section id="experiments" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
-          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
-            <span>02</span>
-            <span>/</span>
-            <span>Experiments</span>
-          </div>
-          <Experiment />
-        </section>
-
-        <section id="experience" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
-          <div className="flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-16">
-            <span>03</span>
-            <span>/</span>
-            <span>Experience</span>
-          </div>
-          <Experience />
-        </section>
-
-        <section id="contact" className="col-span-4 md:col-span-8 lg:col-span-12 scroll-mt-32 pt-16 border-t border-border">
-          <Contact />
-        </section>
-
-      </main>
-    </div>
+    <main className="page-shell">
+      <section id="hero" aria-label="Introduction"><Header /></section>
+      <section id="projects" aria-label="Selected work" className="portfolio-section">
+        <SectionHeading number="01" title="Selected work" count={PROJECT.length} description="Real problems. Thoughtful solutions. A selection of my web development work." />
+        <Project />
+      </section>
+      <section id="experiments" aria-label="Playground" className="portfolio-section">
+        <SectionHeading number="02" title="Playground" count={EXPERIMENT.length} description="Side projects, small tools, and ideas built out of curiosity." />
+        <Experiment />
+      </section>
+      <section id="experience" aria-label="Experience" className="portfolio-section">
+        <SectionHeading number="03" title="Experience" description="Working across products, teams, and the details that make them work." />
+        <Experience />
+      </section>
+      <section id="contact" aria-label="Contact" className="pb-16 pt-4 sm:pb-24"><Contact /></section>
+    </main>
   );
 }

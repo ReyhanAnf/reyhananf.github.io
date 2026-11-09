@@ -1,133 +1,46 @@
-'use client';
-
 import { PROJECT } from "@/lib/vars";
 import Image from "next/image";
-import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
-import { IconArrowRight } from "@tabler/icons-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Project() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-    },
-  };
-
   return (
-    <div className="w-full">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.05 }}
-        className="flex flex-col gap-32 md:gap-48"
-      >
-        {PROJECT.map((project, index) => {
-           const layoutType = index % 4;
-           // 0 = Image Left
-           // 1 = Text Left (Image Right)
-           // 2 = Full Width Image
-           // 3 = Split Layout
-
-           let imageCols = "";
-           let textCols = "";
-           let wrapperClass = "grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-12 items-center group";
-
-           if (layoutType === 0) {
-              imageCols = "col-span-4 md:col-span-8 lg:col-span-7 order-1";
-              textCols = "col-span-4 md:col-span-8 lg:col-span-4 lg:col-start-9 order-2";
-           } else if (layoutType === 1) {
-              imageCols = "col-span-4 md:col-span-8 lg:col-span-7 lg:col-start-6 order-1 lg:order-2";
-              textCols = "col-span-4 md:col-span-8 lg:col-span-4 order-2 lg:order-1";
-           } else if (layoutType === 2) {
-              imageCols = "col-span-4 md:col-span-8 lg:col-span-12 order-1";
-              textCols = "col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-4 order-2 text-center";
-           } else {
-              imageCols = "col-span-4 md:col-span-4 lg:col-span-6 order-1";
-              textCols = "col-span-4 md:col-span-4 lg:col-span-5 lg:col-start-8 order-2";
-           }
-
-           return (
-             <motion.article 
-                key={index} 
-                variants={itemVariants}
-                className={wrapperClass}
-              >
-                {/* CSS Browser Mockup */}
-                <div className={cn("relative w-full rounded-sm overflow-hidden bg-background border border-border shadow-sm transition-shadow duration-500 hover:shadow-md", imageCols)}>
-                  {/* Browser Header */}
-                  <div className="h-8 w-full bg-secondary border-b border-border flex items-center px-4 gap-2">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-border" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-border" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-border" />
-                    </div>
+    <div className="grid gap-x-7 gap-y-10 md:grid-cols-2 md:gap-y-12">
+      {PROJECT.map((project, index) => {
+        const featured = index === 0;
+        return (
+          <article key={project.title} className={cn("group relative min-w-0", featured && "md:col-span-2")}>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${project.title} (opens in new tab)`} className={cn("project-card block rounded-xl", featured && "overflow-hidden border border-border bg-card md:grid md:grid-cols-[1.35fr_1fr] md:items-center")}>
+              <div className={cn("overflow-hidden rounded-xl border border-border bg-secondary p-4 pb-0 sm:p-6 sm:pb-0", featured && "rounded-b-none border-0 bg-[#edf1f7] dark:bg-secondary md:rounded-none md:p-8 md:pb-0")}>
+                <div className="overflow-hidden rounded-t-lg border border-border/80 bg-background shadow-[0_2px_16px_-6px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="flex h-7 items-center gap-1.5 border-b border-border/70 bg-background px-3" aria-hidden="true">
+                    <span className="h-1.5 w-1.5 rounded-full bg-foreground/15" /><span className="h-1.5 w-1.5 rounded-full bg-foreground/15" /><span className="h-1.5 w-1.5 rounded-full bg-foreground/15" />
+                    <span className="ml-3 truncate font-mono text-[8px] text-muted-foreground">{new URL(project.link).hostname}</span>
                   </div>
-                  {/* Image */}
-                  <div className="relative w-full aspect-[16/9] bg-secondary/50 overflow-hidden">
-                      {project.image !== 'none' ? (
-                        <Image 
-                            src={project.image} 
-                            alt={project.title} 
-                            fill 
-                            className="object-cover object-top transition-transform duration-[1s] ease-out group-hover:scale-105"
-                            priority={index === 0}
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-muted-foreground text-xs uppercase tracking-widest">No Preview</span>
-                        </div>
-                      )}
+                  <div className={cn("relative aspect-[16/10] overflow-hidden", featured && "md:aspect-[4/3]")}>
+                    <Image src={project.image} alt={`${project.title} application preview`} fill sizes={featured ? "(max-width: 767px) 100vw, 640px" : "(max-width: 767px) 100vw, 540px"} className="object-cover object-top" />
                   </div>
                 </div>
-
-                {/* Text Block */}
-                <div className={cn("flex flex-col gap-6", textCols)}>
-                  <div className={cn("flex items-center gap-4 text-[10px] font-bold tracking-widest uppercase text-muted-foreground border-b border-border pb-4 mb-2", layoutType === 2 ? "justify-center" : "")}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <span>/</span>
-                    <span>{project.category}</span>
-                  </div>
-                  
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  <div className={cn("flex flex-wrap gap-x-3 gap-y-2 text-xs font-semibold text-foreground uppercase tracking-wider mt-4", layoutType === 2 ? "justify-center" : "")}>
-                    {project.tech.map((t: any, i: number) => (
-                      <span key={i} className="flex items-center">
-                        {t.name}
-                        {i < project.tech.length - 1 && <span className="ml-3 text-muted-foreground">|</span>}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.link !== '#' && (
-                    <Link href={project.link} target="_blank" className={cn("mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground hover:text-primary transition-colors group/link w-fit", layoutType === 2 ? "mx-auto" : "")}>
-                      View Project <IconArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
-                  )}
+              </div>
+              <div className={cn("pt-5", featured && "p-6 sm:p-8 lg:p-10")}>
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <span className="eyebrow text-[10px]">{featured ? "Featured project" : "Full-stack development"}</span>
+                  <span className="font-mono text-[10px] text-muted-foreground">0{index + 1}</span>
                 </div>
-             </motion.article>
-           );
-        })}
-      </motion.div>
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className={cn("text-xl font-semibold leading-snug tracking-[-0.035em] transition-colors group-hover:text-primary", featured && "sm:text-3xl")}>{project.title}</h3>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground"><ArrowUpRight size={16} aria-hidden="true" /></span>
+                </div>
+                <p className="mt-3 text-[13px] leading-6 text-muted-foreground">{project.description}</p>
+                <ul aria-label="Technologies" className="mt-5 flex flex-wrap gap-1.5">
+                  {project.tech.map((tech) => <li key={tech.name} className="rounded-md border border-border bg-background px-2 py-1 text-[10px] font-medium text-muted-foreground">{tech.name}</li>)}
+                </ul>
+                {featured && <span className="mt-7 inline-flex items-center gap-2 text-xs font-medium text-primary">Explore project <ArrowUpRight size={14} aria-hidden="true" /></span>}
+              </div>
+            </a>
+          </article>
+        );
+      })}
     </div>
   );
 }
